@@ -1,0 +1,147 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f6f8;
+    padding: 30px;
+}
+
+.nav {
+    max-width: 900px;
+    margin: 0 auto 12px;
+}
+
+.nav a {
+    text-decoration: none;
+    font-weight: bold;
+    color: #2f6f6d;
+}
+
+.container {
+    max-width: 900px;
+    margin: auto;
+    background: #fff;
+    padding: 25px;
+    border-radius: 10px;
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+}
+
+button {
+    padding: 7px 14px;
+    cursor: pointer;
+}
+
+.actions {
+    display: flex;
+    gap: 10px;
+}
+
+.op {
+    border: 1px solid #ddd;
+    padding: 12px;
+    margin-top: 10px;
+    border-radius: 6px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.erro {
+    color: red;
+    font-weight: bold;
+}
+
+/* ===== MODAL ===== */
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: #fff;
+    padding: 20px;
+    width: 420px;
+    border-radius: 10px;
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.primary {
+    background: #1976d2;
+    color: #fff;
+    border: none;
+}
+
+.op-info p {
+    margin: 3px 0;
+}
+
+.op-actions {
+    display: flex;
+    align-items: center;
+}
+
+.finalizada {
+    color: green;
+    font-weight: bold;
+}
+
+.aberto {
+    color: orange;
+    font-weight: bold;
+}
+
+/* ===== RADIO LIST (TEXTO ESQ / RADIO DIR) ===== */
+
+.radio-list {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-top: 8px;
+}
+
+.radio-row {
+    display: grid;
+    grid-template-columns: 1fr 24px; /* texto | rádio */
+    align-items: center;
+    padding: 6px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.radio-row:hover {
+    background: #f2f4f7;
+}
+
+.radio-row span {
+    font-size: 14px;
+}
+
+.radio-row input[type="radio"] {
+    justify-self: end;   /* joga o rádio pro canto direito */
+    margin: 0;
+    transform: scale(1.1);
+}
+
+.filtros {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.filtros select,
+.filtros input {
+    padding: 7px;
+}

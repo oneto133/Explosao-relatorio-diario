@@ -1,0 +1,419 @@
+"<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Relatório - Programado x Vendido</title>
+<link rel="stylesheet" href="/static/relatorio_programacao.css">
+</head>
+<body>
+    <div class="page">
+        <header class="header">
+            <div>
+                <h1>Relatório de Programação</h1>
+                <p>Comparativo do vendido (0402) com o que está programado (OPs em aberto)</p>
+            </div>
+            <div class="filters">
+                <button class="filter-toggle" onclick="toggleFiltro()">Filtrar</button>
+            </div>
+        </header>
+
+        <div id="painelFiltro" class="filtro-panel hidden">
+            <label>
+                Mostrar:
+                <select id="filtroStatus">
+                    <option value="todos">Todos</option>
+                    <option value="programado">Programado</option>
+                    <option value="nao_programado">Não programado</option>
+                </select>
+            </label>
+            <label>
+                Seção:
+                <select id="filtroSecao">
+                    <option value="">Todas</option>
+                    {% for s in secoes %}
+                    <option value="{{ s }}">{{ s }}</option>
+                    {% endfor %}
+                </select>
+            </label>
+            <button class="filter-apply" onclick="aplicarFiltro()">Aplicar</button>
+            <button class="filter-clear" onclick="limparFiltro()">Limpar</button>
+        </div>
+
+        {% if erro %}
+            <div class="erro">{{ erro }}</div>
+        {% else %}
+            <section class="card" data-bloco="programado">
+                <h2>Programado</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Código</th>
+                            <th>Descrição</th>
+                            <th>Seção</th>
+                            <th>Vendido</th>
+                            <th>Programado</th>
+                            <th>Saldo</th>
+                            <th>Ação</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for item in programado %}
+                        <tr class="row-click {% if item.atraso %}row-atraso{% endif %}" data-ops='{{ item.ops | tojson | safe }}' data-agenda='{{ item.agenda | tojson | safe }}' data-secao="{{ item.secao }}" data-desc="{{ item.descricao }}">
+                            <td>{{ item.codigo }}</td>
+                            <td class="desc">{{ item.descricao }}</td>
+                            <td class="secao">{{ item.secao }}</td>
+                            <td class="num">{{ item.vendido }}</td>
+                            <td class="num">{{ item.programado }}</td>
+                            <td class="num ok">{{ item.saldo }}</td>
+                            <td class="num">{{ item.previsao or '-' }}</td>
+                            <td class="acao">
+                                {% set has_ops = item.ops | length %}
+                                {% if has_ops %}
+                                    {% set has_sequenciado = false %}
+                                    {% for op in item.ops %}
+                                        {% if op.sequenciado %}
+                                            {% set has_sequenciado = true %}
+                                        {% endif %}
+                                    {% endfor %}
+                                    {% if not has_sequenciado %}
+                                        <button class="btn-seq">Sequenciar</button>
+                                    {% endif %}
+                                {% endif %}
+                            </td>
+                        </tr>
+                        {% endfor %}
+                        {% if programado|length == 0 %}
+                        <tr><td colspan="8" class="empty">Nenhum item programado encontrado.</td></tr>
+                        {% endif %}
+                    </tbody>
+                </table>
+            </section>
+
+            <section class="card" data-bloco="nao_programado">
+                <h2>Não Programado / Insuficiente</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Código</th>
+                            <th>Descrição</th>
+                            <th>Seção</th>
+                            <th>Vendido</th>
+                            <th>Programado</th>
+                            <th>Saldo</th>
+                            <th>Ação</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for item in nao_programado %}
+                        <tr class="row-click {% if item.atraso %}row-atraso{% endif %}" data-ops='{{ item.ops | tojson | safe }}' data-agenda='{{ item.agenda | tojson | safe }}' data-secao="{{ item.secao }}" data-desc="{{ item.descricao }}">
+                            <td>{{ item.codigo }}</td>
+                            <td class="desc">{{ item.descricao }}</td>
+                            <td class="secao">{{ item.secao }}</td>
+                            <td class="num">{{ item.vendido }}</td>
+                            <td class="num">{{ item.programado }}</td>
+                            <td class="num bad">{{ item.saldo }}</td>
+                            <td class="num">{{ item.previsao or '-' }}</td>
+                            <td class="acao">
+                                <button class="btn-seq">Sequenciar</button>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                        {% if nao_programado|length == 0 %}
+                        <tr><td colspan="8" class="empty">Nenhum item pendente.</td></tr>
+                        {% endif %}
+                    </tbody>
+                </table>
+            </section>
+        {% endif %}
+    </div>
+
+    <div id="painelInfo" class="info-panel hidden">
+        <div class="info-title">OP Programada</div>
+        <div id="infoConteudo"></div>
+    </div>
+
+    <div id="modalSequenciar" class="modal hidden">
+        <div class="modal-content">
+            <h3>Sequenciar OP</h3>
+            <p class="modal-sub" id="linhaSugestao"></p>
+
+            <h4>OP</h4>
+            <div id="listaOps" class="radio-list"></div>
+            <button class="btn-add" onclick="abrirManual()">+ Adicionar OP</button>
+
+            <div id="painelManual" class="manual-panel hidden">
+                <label>Número da OP
+                    <input id="opManual" type="text" placeholder="Ex: 90001">
+                </label>
+                <label>Quantidade
+                    <input id="qtdManual" type="number" min="1" placeholder="Ex: 10">
+                </label>
+                <div class="manual-actions">
+                    <button onclick="fecharManual()">Cancelar</button>
+                    <button class="primary" onclick="confirmarManual()">OK</button>
+                </div>
+            </div>
+
+            <h4>Operador</h4>
+            <div id="listaOperadores" class="radio-list"></div>
+
+            <div class="modal-actions">
+                <button onclick="fecharSequenciamento()">Cancelar</button>
+                <button class="primary" onclick="confirmarSequenciamento()">Confirmar</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const painelFiltro = document.getElementById('painelFiltro');
+        const filtroStatus = document.getElementById('filtroStatus');
+        const filtroSecao = document.getElementById('filtroSecao');
+        const painelInfo = document.getElementById('painelInfo');
+        const infoConteudo = document.getElementById('infoConteudo');
+
+        function toggleFiltro() {
+            painelFiltro.classList.toggle('hidden');
+        }
+
+        function aplicarFiltro() {
+            const v = filtroStatus.value;
+            const secao = filtroSecao.value;
+            const blocos = document.querySelectorAll('[data-bloco]');
+
+            blocos.forEach(b => {
+                if (v === 'todos') b.style.display = '';
+                else if (v === b.dataset.bloco) b.style.display = '';
+                else b.style.display = 'none';
+            });
+
+            document.querySelectorAll('tbody tr[data-secao]').forEach(row => {
+                if (!secao) {
+                    row.style.display = '';
+                    return;
+                }
+                row.style.display = row.dataset.secao === secao ? '' : 'none';
+            });
+        }
+
+        function limparFiltro() {
+            filtroStatus.value = 'todos';
+            filtroSecao.value = '';
+            aplicarFiltro();
+        }
+
+        const modalSequenciar = document.getElementById('modalSequenciar');
+        const opAtual = document.getElementById('opAtual');
+        const listaOperadores = document.getElementById('listaOperadores');
+        const listaOps = document.getElementById('listaOps');
+        const linhaSugestao = document.getElementById('linhaSugestao');
+        const painelManual = document.getElementById('painelManual');
+        const opManual = document.getElementById('opManual');
+        const qtdManual = document.getElementById('qtdManual');
+
+        let opSelecionada = null;
+        let linhaSelecionada = null;
+        let rowAtual = null;
+
+        function determinarLinha(secao, descricao) {
+            const s = (secao || '').toLowerCase();
+            const d = (descricao || '').toLowerCase();
+            if (s.startsWith('deslizante')) return 'Deslizante';
+            if (d.includes('new bv')) return 'New BV';
+            if (s.includes('basculante')) return 'Basculante';
+            return '';
+        }
+
+        async function abrirSequenciamento(row) {
+            rowAtual = row;
+            const ops = JSON.parse(row.getAttribute('data-ops') || '[]');
+            if (!ops.length) {
+                alert('Sem OP para sequenciar');
+                return;
+            }
+
+            const secao = row.getAttribute('data-secao') || '';
+            const desc = row.getAttribute('data-desc') || '';
+            linhaSelecionada = determinarLinha(secao, desc);
+
+            listaOps.innerHTML = '';
+            listaOperadores.innerHTML = '';
+            painelManual.classList.add('hidden');
+
+            ops.forEach((o, idx) => {
+                const checked = idx === 0 ? 'checked' : '';
+                if (idx === 0) opSelecionada = o.op;
+                const status = o.sequenciado ? 'Sequenciada' : 'Pendente';
+                listaOps.innerHTML += `
+                    <label class="radio-row">
+                        <span>OP ${o.op} (${status} ${o.pendente})</span>
+                        <input type="checkbox" name="ops_escolhidas" value="${o.op}" ${checked}>
+                    </label>
+                `;
+            });
+
+            if (!linhaSelecionada) {
+                linhaSugestao.innerText = 'Linha não definida para este item.';
+                modalSequenciar.classList.remove('hidden');
+                return;
+            }
+
+            linhaSugestao.innerText = `Linha sugerida: ${linhaSelecionada}`;
+
+            const res = await fetch(`/operadores/${linhaSelecionada}`);
+            const operadores = await res.json();
+
+            if (!operadores.length) {
+                listaOperadores.innerHTML = '<p class="erro">Nenhum operador para esta linha</p>';
+            } else {
+                operadores.forEach(op => {
+                    listaOperadores.innerHTML += `
+                        <label class="radio-row">
+                            <span>${op}</span>
+                            <input type="radio" name="operador" value="${op}">
+                        </label>
+                    `;
+                });
+            }
+
+            modalSequenciar.classList.remove('hidden');
+        }
+
+        function abrirManual() {
+            opManual.value = '';
+            qtdManual.value = '';
+            painelManual.classList.remove('hidden');
+        }
+
+        function fecharManual() {
+            painelManual.classList.add('hidden');
+        }
+
+        async function confirmarManual() {
+            const op = opManual.value.trim();
+            const qtd = qtdManual.value.trim();
+            if (!op || !qtd) {
+                alert('Informe OP e quantidade');
+                return;
+            }
+            const cod = rowAtual ? rowAtual.querySelector('td')?.textContent?.trim() : '';
+            const desc = rowAtual ? rowAtual.getAttribute('data-desc') : '';
+
+            if (!linhaSelecionada) {
+                alert('Linha não definida');
+                return;
+            }
+
+            const res = await fetch('/ops_manual', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({
+                    op: op,
+                    quantidade: qtd,
+                    cod_prod: cod,
+                    descricao: desc,
+                    linha: linhaSelecionada
+                })
+            });
+            const data = await res.json();
+            if (!data.sucesso) {
+                alert(data.mensagem || 'Erro ao salvar OP manual');
+                return;
+            }
+
+            listaOps.innerHTML = `
+                <label class="radio-row">
+                    <span>OP ${op} (Pendente ${qtd})</span>
+                    <input type="checkbox" name="ops_escolhidas" value="${op}" checked>
+                </label>
+            ` + listaOps.innerHTML;
+
+            painelManual.classList.add('hidden');
+        }
+
+        function fecharSequenciamento() {
+            modalSequenciar.classList.add('hidden');
+        }
+
+        async function confirmarSequenciamento() {
+            const opEscolhidas = Array.from(document.querySelectorAll('input[name="ops_escolhidas"]:checked'));
+            if (!opEscolhidas.length) {
+                alert('Selecione ao menos uma OP');
+                return;
+            }
+
+            if (!linhaSelecionada) {
+                alert('Linha não definida');
+                return;
+            }
+            const operador = document.querySelector('input[name="operador"]:checked');
+            if (!operador) {
+                alert('Selecione um operador');
+                return;
+            }
+
+            for (const opInput of opEscolhidas) {
+                await fetch('/sequenciar', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({
+                        op: opInput.value,
+                        linha: linhaSelecionada,
+                        operador: operador.value
+                    })
+                });
+            }
+
+            fecharSequenciamento();
+        }
+
+        document.querySelectorAll('.btn-seq').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                const row = e.target.closest('tr');
+                if (row) abrirSequenciamento(row);
+            });
+        });
+
+        document.querySelectorAll('tr.row-click').forEach(row => {
+            row.addEventListener('click', (e) => {
+                if (e.target.classList.contains('btn-seq')) return;
+                const ops = JSON.parse(row.getAttribute('data-ops') || '[]');
+                const agenda = JSON.parse(row.getAttribute('data-agenda') || '[]');
+                const emAtraso = row.classList.contains('row-atraso');
+
+                const agendaHtml = agenda.length
+                    ? agenda.map(a => (
+                        `<div class="info-row"><b>Data:</b> ${a.data} | <b>Qtd:</b> ${a.quantidade}</div>`
+                    )).join('')
+                    : '<div class="info-row">Sem previsÃ£o de faturamento</div>';
+
+                const opsHtml = ops.length
+                    ? ops.map(o => (
+                        `<div class="info-row"><b>OP:</b> ${o.op} | <b>CriaÃ§Ã£o:</b> ${o.data_emissao} | <b>Pendente:</b> ${o.pendente}</div>`
+                    )).join('')
+                    : '<div class="info-row">Sem OP programada</div>';
+
+                infoConteudo.innerHTML = `
+                    <div class="info-block">
+                        <div class="info-subtitle">PrevisÃ£o por datas</div>
+                        ${agendaHtml}
+                    </div>
+                    <div class="info-block">
+                        <div class="info-subtitle">OPs programadas</div>
+                        ${opsHtml}
+                    </div>
+                    ${emAtraso ? '<div class="info-row info-atraso">Em atraso</div>' : ''}
+                `;
+                
+            });
+        });
+
+        document.addEventListener('click', (e) => {
+            if (painelInfo.classList.contains('hidden')) return;
+            if (e.target.closest('#painelInfo') || e.target.closest('tr.row-click')) return;
+            painelInfo.classList.add('hidden');
+        });
+    </script>
+</body>
+</html>

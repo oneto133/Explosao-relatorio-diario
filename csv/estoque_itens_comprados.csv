@@ -1,0 +1,225 @@
+﻿Código,Descrição,Família,Consumo V.,Consumo P.,PR,Liberio,Estoque setor,Almoxarifado,Estoque total,Situação,Dias,LT,Nº BraZip,Data solic.,Qtd solic.,Fornecedor,Aplicação
+32253,ALL PS 200 AL -T,Lubrificantes,-,-,-,110,,0,0,Fazer pedido,,,,,,,5 LITROS/DIA
+32254,ALL CGLP 68 -T,Lubrificantes,-,-,-,4 meses,,0,0,Fazer pedido,,,,,,,1 LITRO/DIA
+33402,"Serra fita T8 1"" x 4-6D CT8 AMADA 4,12MTS (USO PARA AÇO)",Ferramentas,-,-,-,5,2,0,2,Fazer pedido,,,,,,,Conferir consumo
+34561,ALL HLP 32-T,Lubrificantes,-,-,-,28,,0,0,Fazer pedido,,,,,,,REPOSIÇÃO
+36111,"Serra fita T8 1"" x 6-10D CT8 AMADA 4,12MTS (USO PARA INOX)",Ferramentas,-,-,-,5,3,0,3,Fazer pedido,,,,,,,Conferir consumo
+41235,ALL CUT 311 PLUS - T,Lubrificantes,-,-,-,39,,0,0,Fazer pedido,,,,,,,REPOSIÇÃO
+41733,SETTORI 3148 - TB200L,Lubrificantes,-,-,-,,,0,0,Fazer pedido,,,,,,,LAMINADORA
+46290,Etiqueta Ades. Couche 12mm X 12mm X 04 Car Red.. - ET.01,Etiquetas,-,-,-,16000,19732,0,19732,Almoxarifado,,,,,,,uso e consumo
+46291,Etiqueta Ades. Couche 12mm X 12mm X 04 Car Red.. - ET.02,Etiquetas,-,-,-,,19732,0,19732,Almoxarifado,,,,,,,uso e consumo
+46292,Etiqueta Ades. Couche 12mm X 12mm X 04 Car Red.. - ET.03,Etiquetas,-,-,-,,39464,0,39464,Almoxarifado,,,,,,,uso e consumo
+46293,Etiqueta Ades. Couche 12mm X 12mm X 04 Car Red.. - ET.04,Etiquetas,-,-,-,16000,500,0,500,Almoxarifado,,,,,,,uso e consumo
+100817,SENSOR REED SWITCH (MODELO FLEX-14 1315),Diversos,-,14641,25625,,13974,180000,193974,Estoque em dia,13 Meses,,,,,,
+101306,CAPACITOR FIXO C/DIELETRICO DE POLIPROPILENO BIORIENTADO P/MOTORES CMRW CANECA PLASTICA 15UF 250V 50,Diversos,-,0,0,1000,1150,1599,2749,Conferir consumo,,,,,,,
+101819,BATERIA DE LITHIUM CR2032 210mAH 3V TRAY (CR2032),Diversos,21942.833333333332,20216,35380,-,0,0,0,Fazer pedido,0 Dias,,,,,,
+102560,CONECTOR ELETRONICO DE TORÇÃO 3mm,Parafusos Geral,72.33333333333333,71,125,100,0,500,500,Estoque em dia,7 Meses,,,,,,Montagem elétrica do led da cancela
+102572,FILME PLÁSTICO TERMOENCOLHÍVEL GROSSO,Diversos,23.833333333333336,26,50,2,50,0,50,Estoque em dia,2 Mês,19,6590,2026-02-07 00:00:00,100,,
+102573,BOBINA TUBULAR PEBD LEITOSA IMPRESA P/ ACIONAMENTO DE MOTORES,Embalagem,254.98670476190483,268,470,800,56.481772,1243.97,1300.4517720000001,Estoque em dia,5 Meses,,,,,,
+102574,BOBINA TUBULAR PEBD LEITOSA LISA P/ ACIONAMENTO DE MOTORES,Embalagem,15.639009523809518,60,105,1000,16.3248,178.35,194.6748,Estoque em dia,3 Meses,,,,,,
+102806,MICRO CHAVE NS0-040D PARA BV CORRENTE,Parafusos Geral,143.66666666666669,93,165,500,522,0,522,Estoque em dia,6 Meses,,,,,,BV CADENA
+103547,CABO PP 3X22 VM/VD/PT,Diversos,60.677777777777784,90,160,100,70,0,70,Fazer pedido,23 Dias,,6660,2026-02-18 00:00:00,150,,barreiras (1 metro independente do tamanho de barreira) - estoque acompanhado pelo sistema
+103549,"TERMINAL FASTON FEMEA ISOLADO 0,5-1,5MM",Parafusos Geral,287.33333333333337,186,330,1200,1150,0,1150,Estoque em dia,6 Meses,,,,,,Motor Cadena (4 un/ motor)
+105068,"BOBINA LAMINADA 2,00MM PRETA 23 (EVA PARA MOTORES)",Diversos,-,34,60,,201.785,100,301.78499999999997,Estoque em dia,9 Meses,,,,,,
+105069,FITA EMPACT. 50MT X 48MM ACRI,Embalagem,-,12,25,-,9,0,9,Fazer pedido,23 Dias,,,,,,
+123456,PARAFUSO PAN ZBR P/ CHAVE TORX M5 X 20MM T25 C/ ORING,Parafusos Geral,-,-,-,30000,0,0,0,Não compra,,,,,,,"Está sendo analisado não utilizar mas esse parafuso com oring, somente sem oring"
+201038,PERFIL AL SOL 7 STLF-0864 6063 (FINO),Perfil/ Tubo Inox,3943.762470044444,2573,4505,4000,7358.66181,0,7358.66181,Estoque em dia,3 Meses,,,,,,
+201039,PERFIL AL SOL 7 STLF-0846 6063 T5 (GROSSO),Perfil/ Tubo Inox,442.7635135135135,219,385,300,454.234868,0.3,454.534868,Estoque em dia,2 Meses,,,,,,Utilizado nos acionamentos de 4 metros para cima
+201109,PERFIL AL STL 1851 CANCELAS,Perfil/ Tubo Inox,249.59039152298848,266,470,500,33.390479,0.46,33.850479,Fazer pedido,4 Dias,,,,,,
+201125,GRAMPO 35/18 UNIDADE,Parafusos Geral,10166.222222222219,11570,20250,30000,5000,0,5000,Fazer pedido,13 Dias,,,,,,USADO PARA EMABALR CAIXAS DO PIVÔ
+202010,AÇO RED TREF SAE 1010/20 21.00,Barras de aço,151.36367493796521,147,260,1000,2534.6,0,2534.6,Estoque em dia,17 Meses,,,,,,SEM FIM BV/ PIVO
+202026,AÇO RED TREF SAE 1020 25.40 SAE J403,Barras de aço,28.494041293456814,40,70,100,0,0,0,Fazer pedido,0 Dias,,,,,,EIXO STRONG
+202033,AÇO RED TREF SAE 1020 12.70,Barras de aço,1456.76915792007,2388,4180,5000,5316,0,5316,Estoque em dia,2 Meses,,6619,2026-02-10 00:00:00,5000,,EIXO INDUZIDO
+202034,AÇO RED TREF SAE 1020 14.29 SAE 403,Barras de aço,250.0343391125013,152,270,500,0,0,0,Não usa,0 Dias,,,,,,"FUSO 5/8"" (Não vai mais usar)"
+202043,"AÇO RED TREF SAE 1020 15,88",Barras de aço,162.80104166666666,164,290,500,0,0,0,Fazer pedido,0 Dias,,,,,,PINO DA PORCA
+202045,AÇO RED TREF SAE 1020 12.00,Barras de aço,2773.0527009408574,923,1620,10000,5846.5,0,5846.5,Estoque em dia,6 Meses,,,,,,"FUSO 1/2"" (SERÁ SUBSTITUÍDA PELA 202094 BARRA DE 12MM LAMINADA)"
+202058,ACO RED TREF SAE 1020 31.00,Barras de aço,409.11443601895746,347,610,1000,7234.9,0,7234.9,Estoque em dia,21 Meses,,,,,,SEM FIM AÇO NEW BV/ DZ
+202062,AÇO RED TREF SAE 1020 5.00 SAE,Barras de aço,79.60951432064476,102,180,200,500.194677,0,500.194677,Estoque em dia,5 Meses,,,,,,"GUIA DO FUSO A CIMA DE 2,5 M"
+202073,AÇO RED LAM Ø 5/8 6M 1020,Barras de aço,-,0,0,1000,0,0,0,Conferir consumo,,,,,,,
+202074,AÇO RED LAMINADO Ø 9/16 6M 1015/1022,Barras de aço,-,1713,3000,,0,0,0,Fazer pedido,0 Dias,,,,,,Eixo suggar
+202076,AÇO RED LAMINADO 7/8 - 6000MM - 1020,Barras de aço,-,-,-,,,0,0,Fazer pedido,,,,,,,Irá substituir a barra de 12mm trefilada 202045
+202086,AÇO TREFILADO QUAD SAE 1020 H11 A36 5/16'',Barras de aço,101.14654166666664,73,130,,131.904,0,131.904,Estoque em dia,2 Mês,,6632,2026-02-11 00:00:00,300,,
+202090,AÇO RED LAM Ø 5/8 6M 1045,Barras de aço,-,-,-,,0,0,0,Fazer pedido,,,,,,,"Pino da porca, usar o 5/8 Trefilado e depois pedir mais"
+202091,AÇO RED LAM Ø 9/16 1045,Barras de aço,-,-,-,,0,0,0,Fazer pedido,,,5969,2025-10-22 00:00:00,4000,,
+202094,AÇO RED LAM Ø 12MM 6M 1020,Barras de aço,-,2242,3925,,1131.2107999999998,0,1131.2107999999998,Fazer pedido,15 Dias,,6564,2026-02-03 00:00:00,4000,,
+205015,"Tubo inox 304 A554 C/C 25,40 x 3mm x 6metros polido",Perfil/ Tubo Inox,5.279999999999999,7,15,SD,200.94,0,200.94,Estoque em dia,29 Meses,,,,,,
+205016,TUBO EM AÇO COM DIÂMETRO DE 20MM DE AÇO COMUM - SIZE OD*ID (MM) - 20.5*13 ASTM A106 GR.B,Barras de aço,888.7098697383389,839,1470,,8000,0,8000,Estoque em dia,10 Meses,,,,,,Eixos principais
+209001,MANG 3/4 PRETA PESADA 3 METROS (CONSIDERAR ESTOQUE EM METROS),Diversos,660.331111111111,741,1300,1500,216.36,0,216.36,Fazer pedido,9 Dias,,,,,,Protetor dentro do tubo de inox do pivo (Não vai mais usar)
+401006,"PARAFUSO 4,8 X 19 AA PAN PHS ZBR",Parafusos Geral,79.66666666666667,81,145,100,500,0,500,Estoque em dia,6 Meses,,,,,,Motor Strong
+401007,PARAFUSO 4.8 X 13 A/A PN. PH - ZI,Parafusos Geral,99735,94047,164585,200000,222000,0,222000,Estoque em dia,2 Meses,,,,,,Montagem cremalheira de alumínio e fechamento da tampa da Dz na base de alumínio(será substituido pelo 401248
+401010,"PARAFUSO 6,3X13 AA PAN PHS ZBR",Parafusos Geral,-,-,-,0,21600,0,21600,Gerar consumo,,,,,,,NÃO USA  (AJUSTAR MOLDE P/ CONSUMIR)
+401012,PARAFUSO 3.5 X 13 CH. PH - OXI,Parafusos Geral,440.49999999999994,455,800,2000,0,0,0,Fechaduras,0 Dias,,,,,,"Montagem do encoder New BV (pegar na Fechaduras, alinhado PCP)"
+401014,PARAFUSO 2.9 X 6.5 A/A PAN PHS ZI,Parafusos Geral,9284.583333333327,9234,16160,30000,10000,0,10000,Fazer pedido,32 Dias,,6662,2026-02-18 00:00:00,15000,Jomarca,Montagem das placas motores/montagem da veneziana
+401028,"PARAF. SEXT. INTER. CC. M6-1,00 -40MA OXI",Parafusos Geral,-,-,-,,7500,3000,10500,Fazer pedido,,,,,,,
+401039,PARAFUSO FRANCES 5/16-18 X 1 UNC FE.ZB,Parafusos Geral,4.333333333333334,1,5,80,2500,0,2500,Estoque em dia,2500 Meses,,,,,,Cancela Agusta Light (pegar na Fechaduras)
+401044,PARAFUSO A/A PAN PHS 2.9 X 9.5 ZI,Parafusos Geral,657.1666666666667,431,755,500,3500,0,3500,Estoque em dia,8 Meses,,,,,Jomarca,strong e bv cadena
+401051,PARAFUSO PA ALLEN M6 x 20,Parafusos Geral,290.66666666666663,327,575,400,0,0,0,Fazer pedido,0 Dias,10,6697,2026-02-24 00:00:00,800,,suporte da barreira 
+401069,PARAFUSO 2.9X13MM A/A PAN PHS ZI,Parafusos Geral,5869.33333333333,5729,10030,20000,24000,0,24000,Estoque em dia,4 Meses,,,,,,Montagem do fim de curso acionamentos Bv / Pivo / New  Bv
+401072,PARAFUSO PA ALLEN M6 x 16,Parafusos Geral,-,-,-,0,0,0,0,Não usa,,,,,,,usar até acabar ) - substituído por 401254
+401077,PORCA F MET SEXTAVADA M10 (CH17) ZI,Parafusos Geral,605.3333333333334,139,245,1200,1500,0,1500,Estoque em dia,11 Meses,,,,,,Montagem do suporte da barreira / Solda para prender o motor no gabinete
+401085,PORCA F MQ UNC SEXT. 1/4 (CH7/16) ZI (NSC),Parafusos Geral,22248.083333333332,19075,33385,80000,76900,0,76900,Estoque em dia,4 Meses,,,,,,Kit fixação Dz / Montagem do batente dos acionamentos e pivo / Montagem do cilindro de metal Dz
+401095,PARAFUSO MET SXT RI M6-1.00MA X 20 ZI,Parafusos Geral,12856.444444444445,8615,15080,30400,24000,0,24000,Estoque em dia,3 Meses,,,,,,Kit fixação Bv / Montagem do mancal Pivo
+401108,PARAFUSO PLASTIC PAN PHS 5 X 25MM ZI,Parafusos Geral,51117.66666666666,49650,86890,100000,98000,0,98000,Estoque em dia,2 Mês,,,,,,Fechametno da base de nylon do Dz
+401109,"PF A/A PAN PHS 3,9 X 13MM ZI",Parafusos Geral,30,1076,1885,2000,4000,0,4000,Estoque em dia,4 Meses,10,,,,,irá substituir o item 401217
+401115,PARAFUSO MQ UNC SXT RI 1/4 X 1.1/4 - ZI,Parafusos Geral,10753.5,9126,15975,40000,44000,0,44000,Estoque em dia,5 Meses,43,,,,,Kit fixação Bv (ALTERAÇÃO PROGRAMADA PARA 1/4 X 7/8)
+401124,PORCA SEXT. M6 DIN 439-2,Parafusos Geral,-,-,-,0,0,0,0,Não compra,,,,,,,verificar se usa
+401134,"PARAFUSO PAN CRUZ 3,5MMX27MM (FABR. AGL) - ZINCADO (PROD)",Parafusos Geral,1332.4444444444446,1706,2990,0,39900,0,39900,Estoque em dia,23 Meses,,,,,,
+401141,PARAFUSO AÇO MET CIL SX INT M6X30MM OX,Parafusos Geral,320.3333333333333,342,600,600,800,0,800,Estoque em dia,2 Meses,,,,,,Montagem de fechamento no eixo da cancela do suporte da barreira antigo
+401156,PARAFUSO MAD SX 1/4 X 70MM ZI,Parafusos Geral,21669.333333333325,21362,37385,56000,31600,0,31600,Fazer pedido,44 Dias,43,6697,2026-02-24 00:00:00,60000,,Kit fixação Dz
+401157,PARAFUSO PAN ZBR P/ CHAVE TORX M5 X 30MM T25,Parafusos Geral,3630.583333333334,4994,8740,65000,0,124500,124500,Estoque em dia,25 Meses,,,,,,Montagem da aranha P17 e fechamento da base do STRONG (USAR ATÉ ACABAR E MANTER NA LISTA SOMENTE O CISER)
+401160,PARAFUSO MQ HXL M5 X 16MM RI T25 ZBR,Parafusos Geral,12043.444444444447,11823,20695,20000,20443,94549,114992,Estoque em dia,10 Meses,,,,,,Fechamento da carcaça Bv e BV CADENA
+401161,PARAFUSO PAN ZBR P/ CHAVE TORX M5 X 20MM T25,Parafusos Geral,7118.666666666667,5994,10490,40000,835,20000,20835,Estoque em dia,3 Meses,,6603,2026-02-18 00:00:00,20000,,Fechamento da carcaça New Bv
+401162,PARAFUSO PAN ZBR P/ CHAVE TORX M5 X 25MM T25,Parafusos Geral,3234.8333333333335,3226,5650,3000,6000,16000,22000,Estoque em dia,7 Meses,,,,,,Montagem base de alumínio deslizante
+401163,PARAFUSO PLASTIC PAN PHS 5 X 12MM ZI,Parafusos Geral,154299.8333333333,116629,204105,250000,267000,0,267000,Estoque em dia,2 Meses,,,,,,Montagem da cremalheira de plástico / Fechamento da tampa Dz base de nylon / Montagem da base de placa Bv e New Bv
+401164,PARAFUSO MQ UNC SX RI 1/4 X 1/2 ZI,Parafusos Geral,11749.166666666662,10254,17945,35000,35800,0,35800,Estoque em dia,3 Meses,,,,,,Montagem do batente acionamento Bv e Pivo
+401166,PO F MET SEXT. M5 (CH8) ZI (NSC),Parafusos Geral,187.16666666666666,139,245,1000,5096,0,5096,Estoque em dia,37 Meses,,,,,,Acoplamento do New Bv turbo
+401169,"PF JMP PAN PHS 3,5X14MM ZI",Parafusos Geral,14039.499999999998,24652,43145,20000,0,0,0,Fazer pedido,0 Dias,,6530,2026-01-27 00:00:00,20000,,Fechamento da proteção da central New Bv / Bv / Pivo
+401172,P ACO MET S/CAB SX INT PTA CONCOVA M8X20MM OX,Parafusos Geral,74.33333333333333,82,145,100,200,0,200,Estoque em dia,2 Meses,,,,,,Travamento do eixo da cancela no suporte da barreira antigo
+401173,REBITE C/ROSCA SEXT. M5 CAB. PLANA ZB,Parafusos Geral,1869,1879,3290,4100,1284,0,1284,Fazer pedido,21 Dias,,,,,,26 por motor 
+401180,PARAFUSO AÇO MET CIL SX INT M8X45MM OX,Parafusos Geral,24,43,80,100,314,0,314,Estoque em dia,7 Meses,,,,,,Montagem da barreira articulada e do suporte da barreira
+401181,PARAFUSO AÇO MET CIL SX INT M8X50MM OX,Parafusos Geral,57.16666666666667,86,155,100,200,0,200,Estoque em dia,2 Meses,43,,,,,Montagem da barreira articulada
+401182,PARAFUSO AÇO MET CIL SX INT M10X40MM OX,Parafusos Geral,434.6666666666667,421,740,1050,1700,0,1700,Estoque em dia,4 Meses,,,,,,Montagem do motor da cancela no gabinete
+401183,PORCA F MET SEXTAVADA M14 (CH22) ZI (ISC),Parafusos Geral,22,29,55,100,64,0,64,Estoque em dia,2 Meses,,,,,,Montagem do esticador da barreira articulada
+401184,PORCA F MET SEXTAVADA M8 (CH13) ZI (NSC),Parafusos Geral,4.5,4,10,200,1350,0,1350,Estoque em dia,338 Meses,,,,,,"prender mola da cancela, vem junto com a mola"
+401187,BARRA ROSCADA FERRO MET M14 X 1000MM ZI,Barras de aço,1.6000000000000003,3,10,,8.4,0,8.4,Fazer pedido,3 Meses,,,,,,
+401190,PARAFUSO MET SX RI M10 X 100MM ZI,Parafusos Geral,76,113,200,100,400,0,400,Estoque em dia,4 Meses,,,,,,USADO NOS MOTORES CADENA E CANCELA
+401198,PARAFUSO PLASTIC PAN PHILLIPS 4 X 10 ZB - ZINCADO,Parafusos Geral,2571.1111111111113,2254,3945,,24061,0,24061,Estoque em dia,11 Meses,,,,,,
+401199,PORCA PARLOCK MA 6MM ZB,Parafusos Geral,1268.5,1326,2325,2800,2000,2000,4000,Estoque em dia,3 Meses,,6603,2026-02-18 00:00:00,2000,,Montagem da trava de apoio da barreira no suporte da barreira
+401201,PORCA PARLOCK MA 8MM ZB,Parafusos Geral,67.5,129,230,800,500,0,500,Estoque em dia,4 Meses,,,,,,Montagem da barreira articulada
+401207,"PF A/A JMC DRILL FL PHS C/ SERRILHA PTA BROCA 4,2X13MM ZI",Parafusos Geral,22709.666666666664,22325,39070,44000,34500,0,34500,Fazer pedido,2 Mês,,6697,2026-02-24 00:00:00,60000,,Kit fixação DZ / Montagem da tampa da cancela 
+401208,PA MQ PN HXL T25 TMA 5X12 RI ZB,Parafusos Geral,8660.416666666662,7881,13795,32500,80213,167500,247713,Estoque em dia,31 Meses,,,,,,Mancal New Bv
+401224,"GRAXEIRA RETA M6 X 1,0 - ACO ZINCADO",Parafusos Geral,7.666666666666666,5,10,100,179,0,179,Estoque em dia,36 Meses,,,,,,Movimentador de placa solar (sob demanda)
+401225,"CORRENTE DE ROLO ASA 410 122 ELOS (3098MM) PARA ACIONAMENTO BV CADENA DE 1,5M",Parafusos Geral,256.27599999999995,107,190,300,519,0,519,Estoque em dia,5 Meses,,,,,,Acionamento Cadena
+401226,ELO DE EMENDA CORRENTR BV CADENA,Parafusos Geral,165,69,125,500,450,0,450,Estoque em dia,7 Meses,,,,,,
+401227,"PARAFUSO CAB FRANCESA 1/4 X 5/8"" ZI",Parafusos Geral,456,185,325,1000,2555,0,2555,Estoque em dia,14 Meses,,,,,,Kit Acionamento CADENA
+401228,PARAFUSO ALLEN RI M3X16 ZI,Parafusos Geral,287.33333333333337,181,320,0,2850,0,2850,Estoque em dia,16 Meses,,,,,,Acabar com o que tem no Cadena e parar de usas
+401230,PORCA BAIXA MB20 ZI,Parafusos Geral,143.66666666666669,91,160,800,792,1200,1992,Estoque em dia,22 Meses,,,,,,
+401232,PARAFUSO FRANCES 5/16 X 3/4 ZI C/ PORCA,Parafusos Geral,127.11111111111111,138,245,1200,636,0,636,Estoque em dia,5 Meses,,,,,,Base regulável dz
+401233,PARAFUSO FRANCES 5/16 X 2 ZI C/ PORCA,Parafusos Geral,406.6666666666667,138,245,800,778,0,778,Estoque em dia,6 Meses,,,,,,Base regulável DZ
+401234,ARRUELA LISA PO 5/16,Parafusos Geral,254.22222222222223,275,485,400,450,0,450,Fazer pedido,2 Mês,,6697,2026-02-24 00:00:00,600,,Base regulável dz
+401235,PARAFUSO ALLEN C/CAB 912 M14X35 ZB,Parafusos Geral,7.555555555555556,1,5,49,120,0,120,Estoque em dia,120 Meses,,,,,,
+401248,PARAFUSO MAQ PAN PHILLIPS MA 5X10,Parafusos Geral,-,0,0,,28399,1000,29399,Conferir consumo,,,,,,,Máquina de Cremalheira
+401254,PARAFUSO PA ALLEN  M6 x 12,Parafusos Geral,624,654,1145,800,1200,0,1200,Estoque em dia,2 Mês,,6697,2026-02-24 00:00:00,1500,,ACABAR COM M6X16
+401255,PARAFUSO AÇO MET CIL SX INT M8X25MM RI,Parafusos Geral,7.5,15,30,100,500,0,500,Estoque em dia,33 Meses,,,,,,Barreira articulada (1 und/ barreira)
+401257,PARAFUSO PAN PHS MET RI M5X12 ZB,Parafusos Geral,-,-,-,200000,2500,0,2500,Fazer pedido,,,,,,,cremalheira de alumíno (parafusagem por máquina) - PEDIR MAIS QUANDO ABAIXAR O ESTOQUE DO 401007. obs: Consumir e alterar para 401248
+401260,PARAFUSO MQ PN HXL T25 TMA 5X45 PS 30 ZB (ROSCA COMPLETA),Parafusos Geral,4281,4349,7615,11000,14000,0,14000,Estoque em dia,3 Meses,,,,,,utilizado no eixo dz estampado (300 kg para baixo com excessão dos speeds) - 1 un/ motor
+401267,PARAFUSO AÇO MET S/CAB SX INT PTA CONCOVA M10X40MM ,Parafusos Geral,7.5,15,30,100,450,0,450,Estoque em dia,30 Meses,,,,,,1 unidade por barreira articulada
+401279,PORCA TRAVANTE M10,Parafusos Geral,-,29,55,,500,0,500,Estoque em dia,17 Meses,,,,,,
+401283,"PARAFUSO CAB FRANCESA C/ PORCA 1/4 X 2"" ZI",Parafusos Geral,-,124,220,500,0,200,200,Fazer pedido,2 Mês,,6603,2026-02-09 00:00:00,135,,4 unidades por Acionamento Cadena (kit)
+401301,PARAFUSO ALLEN CABEÇA CILINDRICA M8 X 16 ZI,Parafusos Geral,,-,-,,,0,0,Fazer pedido,,,6603,2026-02-09 00:00:00,800,,
+402012,ANEL ELÁSTICO E-20,Anéis e pinos ,10036.916666666666,9540,16695,23000,20000,0,20000,Estoque em dia,2 Meses,,,,,,"Montagem do eixo principal New BV, BV, Pivo e deslizantes speeds e a cima de 300 kg (eixo antigo)"
+402013,RETENTOR GR 20X30X7 TC GTOP-GBR,Anéis e pinos ,2092.333333333333,1759,3080,8800,2300,74740,77040,Estoque em dia,44 Meses,,,,,,Montagem do eixo principal New BV (CARCAÇA NOVA) - IMPORTADO
+402015,ANEL ELASTICO E12,Anéis e pinos ,11682.833333333332,10135,17740,25000,18000,0,18000,Estoque em dia,2 Mês,,6692,2026-02-24 00:00:00,20000,,Montagem do rolamento no eixo do induzido
+402016,ANEL ELASTICO E17,Anéis e pinos ,28.916666666666668,2,5,0,22000,0,22000,Estoque em dia,11000 Meses,,,,,,Reposição para mancal acionamento bv/ pivo antigo (Ø17mm)
+402017,CP DE FERRO ZINCADO 3/16 X 1. 1/4,Parafusos Geral,4102.75,3647,6385,17,11500,0,11500,Estoque em dia,3 Meses,,,,,,Kit Fixação Pivo
+402018,ESPAGUETE LISO 10MMX150MM PRETO (CONSIDERAR ESTOQUE EM METROS) 50m,Diversos,538.7000000000002,385,675,1540,673,0,673,Fazer pedido,2 Mês,,6693,2026-02-24 00:00:00,1500,,Acabamento dos fios do estator BV/PIVO/NEW BV CONVENCIONAL E SPEED
+402019,PINO ELÁSTICO 4X24,Anéis e pinos ,12199.583333333334,11916,20855,30000,21000,0,21000,Estoque em dia,2 Mês,,6692,2026-02-24 00:00:00,20000,,"Montagem do sem fim Bv, New Bv e Dz e eixo de transmissão DZ dos motores abaixo de 500kg (eixo estampado)"
+402023,ANEL ELÁSTICO E-25,Anéis e pinos ,79.66666666666667,81,145,500,3500,0,3500,Estoque em dia,43 Meses,,,,,,Montagem do rolamento no eixo do industrial
+402024,CHUMBADOR PBJ C/PRISIONEIRO 3/8X110MM ZI,Parafusos Geral,159.33333333333334,162,285,500,350,0,350,Estoque em dia,2 Meses,,,,,,Kit fixação Strong
+402028,BUCHA PLASTICA N10,Parafusos Geral,21669.333333333325,21362,37385,35000,65500,0,65500,Estoque em dia,3 Meses,,,,,Jomarca,Kit fixação DZ
+402032,"ANEL DE RETENÇÃO ORING 4,47 X 1,78MM",Anéis e pinos ,6493.5,5370,9400,20000,19950,0,19950,Estoque em dia,4 Meses,,,,,,Montagem na parafuso de fechamento da carcaça do New Bv (está sendo analisado a não utilização desse anel no parafuso)Consumir e não pedir mais
+402034,"ANEL DE RETENÇÃO ORING INTERNO 14MM X 2,6MM",Anéis e pinos ,329.1111111111111,232,410,3000,9720,0,9720,Estoque em dia,42 Meses,,,,,,Montagem no encoder do New Bv
+402039,"ESTICADOR OLHAL COM GANCHO 8MM 5/16"" GALVANIZADO",Parafusos Geral,1.4444444444444446,1,5,50,207,0,207,Estoque em dia,207 Meses,,,,,,"PRODUTO NOVO, CANCELA QUE ENTRARÁ EM LINHA DE PRODUÇÃO"
+402040,"MANCAL OVAL UCFL205-16 ROL UC205-16 PARA EIXO 25,4",Parafusos Geral,2.8888888888888893,1,5,50,159,0,159,Estoque em dia,159 Meses,,,,,,"PRODUTO NOVO, CANCELA QUE ENTRARÁ EM LINHA DE PRODUÇÃO"
+402042,CHUMBADOR PBJ PARABOLT MQ UNC 3/8X3 ZI,Parafusos Geral,290.66666666666663,282,495,400,550,0,550,Estoque em dia,2 Mês,,,,,,Kit fixação Cancelas
+403027,MOLA CÔNICA DO FREIO DESLIZANTE Ø 2.4,Molas,146.50000000000006,198,350,1000,29523,0,29523,Estoque em dia,149 Meses,,,,,,Montagem do freio mecânico Dz speed
+403032,MOLA DE DESTRAVAMENTO DESLIZANTE,Molas,5406.916666666665,5311,9295,11000,6000,0,6000,Fazer pedido,34 Dias,22,6555,2026-02-02 00:00:00,15000,,Montagem do destravamento Dz
+403043,MOLA CÔNICA DO FREIO DESLIZANTE Ø 1.8,Molas,5255.166666666668,20,35,11000,14177,0,14177,Estoque em dia,709 Meses,,,,,,"Montagem do freio mecânico Dz convencional, Turbo e Brabus (não comprar mais, a menos que a exclusão do freio dos deslizantes convencionais venha a dar problemas na rua)"
+403047,MOLA DO FREIO MOTOR PIVOTANTE/ NEW BV,Molas,1399.7777777777778,1198,2100,2500,1800,0,1800,Fazer pedido,2 Mês,22,6555,2026-02-02 00:00:00,2500,,Montagem do freio Pivo e New Bv4 speed e new bv3 speed
+403049,MOLA PARA DESTRAVAMENTO PIVOTANTE,Molas,1105.4444444444441,1670,2925,2000,5815,0,5815,Estoque em dia,3 Meses,,,,,,Montagem do destravamento pivo
+403050,"MOLA DE DESTRAVAMENTO MOTOR INDUSTRIAL FIO 2,40MM X 80,00MM",Molas,43.66666666666667,45,80,200,631,0,631,Estoque em dia,14 Meses,,,,,,Montagem do destravamento Strong
+403055,MOLA DO FREIO NEW BV HEAVY SPEED,Molas,5.166666666666667,3,10,300,500,0,500,Estoque em dia,167 Meses,,,,,,Montagem do freio do New Bv Heavy
+411015,ROLAMENTO 6004 (20mm x 42mm x 12mm ) - (Ø interno x Ø externo x A),Diversos,2298.1111111111104,242,425,8000,808,0,808,Estoque em dia,3 Meses,,,,,,Eixo principal New Bv turbo e New Bv Heavy
+411017,"ROLAMENTO 6201 (12,7mm x 32mm x 10mm ) - (Ø interno x Ø externo x A)",Diversos,16740.499999999996,5777,10110,50000,39200,42000,81200,Estoque em dia,14 Meses,,,,,,Eixo do induzido de todos motores
+411039,TARUGO ESPUMADO CINZA 10MM X 1150M (CONSIDERAR ESTOQUE EM METROS),Diversos,3798.1583333333347,3386,5930,11500,9967.89918,12650,22617.89918,Estoque em dia,7 Meses,,,,,,Acabamento do fim de curso acionametno BV/NEW BV/PIVO
+411048,"Tubo inox 304 A554 C/C 25,40 x 1,20mm x 6metros polido",Perfil/ Tubo Inox,494.9888888888888,790,1385,1500,1530,0,1530,Estoque em dia,2 Mês,,,,,,
+411058,"CORDÃO ESPONJOSO 1/8  Ø 3MM + 0,4MM (ANEL DE VEDAÇÃO)",Parafusos Geral,469.62222222222226,301,530,1000,800,0,800,Estoque em dia,3 Meses,,,,,,vedação da carcaça de proteção da placa do pivo
+411067,ROLAMENTO 6205LLUC3/2AS 25mm x 52mm x 15 mm - (Ø interno x Ø externo x A),Diversos,87.33333333333334,89,160,400,0,0,0,Fazer pedido,0 Dias,,,,,,Eixo principal strong
+500035,MANUAL PISTON CLICK,Manuais,-,-,-,0.1,289,0,289,Sob Demanda,,,,,,,RODAR NA GRÁFICA (SOB DEMANDA)
+501043,GRAXA BRANCA UNILIT NAUTIX SACHE,Parafusos Geral,1009.9999999999998,625,1095,2000,3055,0,3055,Estoque em dia,5 Meses,,,,,,kIt fixação pivo
+501084, GRAXA BRANCA SACHE 15G,Lubrificantes,-,1441,2525,1800,4235,0,4235,Estoque em dia,3 Meses,,,,,,
+510027,INLUB GRAX MP 2/TI,Lubrificantes,120.4960000000001,212,375,170,440.422918,0,440.422918,Estoque em dia,2 Meses,,6637,2026-02-12 00:00:00,170,,30 DIAS
+801132,ARGOLA DA CHAVE,Molas,4369.666666666666,4483,11000,11000,0,0,0,Fazer pedido,0 Dias,,6695,2026-02-24 00:00:00,15000,,
+811032,MANUAL DE INSTALAÇÃO LINHA DESLIZANTE BRABUS SEM LOGO BILINGUE (CENTRAL FX BRABUS),Manuais,62.91666666666666,66,120,500,592,0,592,Estoque em dia,9 Meses,,,,,,CENTRAL FX BRABUS
+811033,MANUAL LINHA DZ HORIZONTAL  SEM LOGO EM PORTUGUÊS,Manuais,-,0,0,0,436,0,436,Conferir consumo,,,,,,,Não vai usar mais
+811034,MANUAL DE INSTALAÇÃO LINHA PIVOTANTE SEM LOGO PORTUGUÊS (CENTRAL FLEX / DUPLA),Manuais,441.3333333333333,498,875,1100,150,0,150,Fazer pedido,9 Dias,22,6554,2026-02-02 00:00:00,10000,,CENTRAL FLEX / DUPLA
+811037,MANUAL LINHA PIVOTANTE SEM LOGO EM ESPANHOL,Manuais,85.83333333333333,111,195,500,540,0,540,Estoque em dia,5 Meses,,,,,,CENTRAL FLEX / DUPLA
+811038,MANUAL LINHA DZ HORIZONTAL  SEM LOGO EM ESPANHOL,Manuais,-,-,-,0.1,0,0,0,Não usa,,,,,,,Não vai usar mais
+811039,MANUAL LINHA DESLIZANTE TURBO SEM LOGO EM ESPANHOL,Manuais,1.6666666666666667,1,5,300,0,0,0,Interno,0 Dias,,,,,,RODAR NA GRÁFICA (SOB DEMANDA)
+811040,MANUAL DE INSTALAÇÃO LINHA IZZY QR CODE BILINGUE,Manuais,1858.4166666666665,1426,2500,7000,2500,0,2500,Estoque em dia,2 Mês,,6661,2026-02-18 00:00:00,2500,,CENTRAL IZZY
+811041,MANUAL DE INSTALAÇÃO LINHA NEW BV TURBO SEM LOGO PORTUGUÊS (CENTRAL NEW INVERTER),Manuais,91.08333333333333,67,120,500,84,0,84,Fazer pedido,38 Dias,,6661,2026-02-18 00:00:00,150,,CENTRAL NEW INVERTER
+811042,MANUAL LINHA NEW BV TURBO SEM LOGO EM ESPANHOL,Manuais,5,2,5,500,0,0,0,Interno,0 Dias,,,,,,RODAR NA GRÁFICA (SOB DEMANDA)
+811043,MANUAL CANCELA SEM LOGO EM PORTUGUÊS,Manuais,70,69,125,150,300,0,300,Estoque em dia,4 Meses,,,,,,CANCELAS
+811104,GABARITO DE INSTALAÇÃO LINHA DESLIZANTE BILINGUE,Manuais,1718.333333333333,1289,2260,10000,3886,0,3886,Estoque em dia,3 Meses,,,,,,INTEGRADO AO MANUAL - SOLICITAR NA MESMA QUANTIDADE DO MANUAL IZZY 
+811106,MANUAL DE INSTALAÇÃO LINHA DESLIZANTE TURBO SEM LOGO PORTUGUÊS (CENTRAL NEW INVERTER),Manuais,53.416666666666664,34,60,500,580,0,580,Estoque em dia,17 Meses,,,,,,CENTRAL NEW INVERTER
+811107,MANUAL LINHA BASCULANTE / NEW BV SEM LOGO ESPANHOL (CENTRAL FLEX / LIGHT),Manuais,62.66666666666667,47,85,300,1087,0,1087,Estoque em dia,23 Meses,,,,,,CENTRAL FLEX / LIGHT
+811122,MANUAL P / AUTOMATIZADOR DZ/BV/NEW BV CENTRAL FLEX/LIGHT EM PORTUGUÊS SEM LOGO,Manuais,4704.083333333333,4886,8555,15000,6800,0,6800,Fazer pedido,42 Dias,22,6554,2026-02-02 00:00:00,15000,,CENTRAL FLEX / LIGHT / CCMD
+811276,ETIQUETA ADES. COUCHE 40MM X 25MM X 02 CAR,Etiquetas,3021.6666666666674,4009,7020,2000,6000,0,6000,Fazer pedido,45 Dias,,,,,,2500 UNIDADES POR ROLO
+811306,ETIQUETA ADES. COUCHE 100MM X 80MM X 01 CAR,Etiquetas,8413.416666666668,8243,14430,20000,4000,0,4000,Fazer pedido,15 Dias,,6522,2026-01-27 00:00:00,30000,,442 UNIDADES POR ROLO/1000 UNIDADES POR ROLO
+811309,ETIQUETA ADES. COUCHE 30MM X 10MM X 03 CAR,Etiquetas,200,165,290,2700,80770,379619,460389,Estoque em dia,2790 Meses,,,,,,8077 UNIDADES POR ROLO
+811311,ETIQUETA ADES. BOPP FOSCO C/DFAM 50MM X 25MM X 02 CAR,Etiquetas,10029.166666666672,8886,15555,20000,10000,0,10000,Fazer pedido,34 Dias,,6522,2026-01-27 00:00:00,30000,,USADA DESCRIÇÃO INTERNA DOS MOTORES (2500 unidades/ rolo)
+811318,ETIQUETA RESINADA PARA CANCELA AGUSTA,Etiquetas,49.83333333333333,-,-,100,0,0,0,Interno,,,,,,,"não comprar mais, solicitar pra rodar na gráfica"
+811319,ETIQUETA RESINADA PARA CANCELA LOGO AGL,Etiquetas,185.33333333333331,-,-,400,96,0,96,Interno,,,,,,,"não comprar mais, solicitar pra rodar na gráfica"
+811320,RL PELICULA ADESIVA REFLETIVA GRAU COMERCIAL VERMELHO (62CMX20M),Parafusos Geral,3.0026660000000005,124,220,,20,40,60,Fazer pedido,15 Dias,,6672,2026-02-18 00:00:00,100,,Montagem da barreira sem led
+811327,ETIQUETA ADES. COUCHE 100MM X 80MM X 01 CAR AMARELA,Etiquetas,315.6666666666666,261,460,2000,7998,5000,12998,Estoque em dia,50 Meses,,,,,,442 UNIDADES POR ROLO/1000 UNIDADES POR ROLO
+811328,ETIQUETA ADES. COUCHE 100MM X 80MM X 01 CAR VERDE,Etiquetas,294.91666666666663,218,385,2000,1688,0,1688,Estoque em dia,8 Meses,,,,,,442 UNIDADES POR ROLO/1000 UNIDADES POR ROLO
+811329,ETIQUETA ADES. COUCHE 100MM X 80MM X 01 CAR AZUL,Etiquetas,965.7500000000002,809,1420,4000,6752,0,6752,Estoque em dia,8 Meses,,,,,,442 UNIDADES POR ROLO/1000 UNIDADES POR ROLO
+811330,ETIQUETA ADES. COUCHE 100MM X 80MM X 01 CAR VERMELHA,Etiquetas,90.00000000000001,60,105,200,12660,0,12660,Estoque em dia,211 Meses,,,,,,442 UNIDADES POR ROLO/1000 UNIDADES POR ROLO
+811729,"CAIXA MOTOR BASCULANTE AGL 18,9 X 14,1 X 23,4",Embalagem,702.0833333333334,805,1410,4000,4580,0,4580,Estoque em dia,6 Meses,,,,,,
+811733,"CAIXA MOTOR BBS 24,0 X 19,5 X 24,5",Embalagem,15,7,15,SD,10920,0,10920,Estoque em dia,1560 Meses,,,,,,
+811742,CAIXA MASTER 11 - CAIXA PARA CANCELA COM LOGO AGL,Embalagem,49.99999999999999,47,85,200,690,0,690,Estoque em dia,15 Meses,,,,,,
+811744,"CAIXA MOTOR LINHA TRINO AGL 24,0 X 19,5 X 24,5",Embalagem,5265.833333333331,4765,15840,15000,169,0,169,Fazer pedido,1 Dias,,,,,,
+811746,"CAIXA MOTOR KRIPT 24,0 X 19,5 X 24,5",Embalagem,11.500000000000002,31,55,SD,790,0,790,Estoque em dia,25 Meses,,,,,,
+811753,CAIXA MASTER 11 - CAIXA PARA CANCELA SEM LOGO,Embalagem,27.500000000000004,28,50,150,203,0,203,Estoque em dia,7 Meses,,,,,,
+811756,CAIXA MASTER 1 - CAIXA PIVÔ VIOLÃO C/ IMPRESSÃO 50X75,Embalagem,727.3333333333333,454,795,1000,21,0,21,Não usa,1 Dias,,,,,,Serão usadas as embalagens novas
+811760,"CAIXA PARA CONTROLE REMOTO AGL 4,0 X 6,20 X 1,6",Embalagem,5618.833333333334,4001,7005,15000,9579,0,9579,Estoque em dia,2 Meses,,6584,2026-02-06 00:00:00,30000,,ARMAZENAGEM ALMOXARIFADO
+811763,CAIXA MASTER 2 - CAIXA PIVÔ VIOLÃO 1 METRO COM IMPRESSÃO,Embalagem,105.25,63,115,750,962,0,962,Estoque em dia,15 Meses,,,,,,
+811771,CAIXA DO MOTOR INDUSTRIAL (STRONG 2000),Embalagem,39.833333333333336,41,75,150,1230,0,1230,Estoque em dia,30 Meses,,,,,,
+811775,"CAIXA MOTOR BASCULANTE NOVA 23,0 X 16,0 X 24,5",Embalagem,1077.2499999999998,895,1570,6000,10860,0,10860,Estoque em dia,12 Meses,,,,,,
+811787,MANUAL P / AUTOMATIZADOR DZ/BV/NEW BV CENTRAL FLEX/LIGHT EM ESPANHOL SEM LOGO,Manuais,355.41666666666674,438,770,2000,2300,0,2300,Estoque em dia,5 Meses,,,,,,CENTRAL FLEX / LIGHT / CCMD
+811801,CAIXA MASTER 7 - CALÇO CABEÇA DO MOTOR PIVÔ ,Embalagem,1100.2222222222222,619,1085,2000,1408,0,1408,Não usa,2 Meses,,,,,,Não serão mais usadas pela mudança do pivo sem acionamento.
+811802,CAIXA MASTER 12 - CAIXA DA CENTRAL PIVÔ,Embalagem,666.2222222222223,560,980,2000,1500,0,1500,Estoque em dia,3 Meses,,6708,2026-02-26 00:00:00,3000,,Não serão mais usadas pela mudança do pivo sem acionamento.
+811803,"CAIXA MASTER 3 - CAIXA PIVÔ VIOLÃO 1,5 METROS COM IMPRESSÃO",Embalagem,25.916666666666664,19,35,400,659,0,659,Estoque em dia,35 Meses,,,,,,
+811809,CALÇO VINCADO BRAÇO MOTOR,Embalagem,1793.4999999999998,31,55,6600,10000,0,10000,Estoque em dia,323 Meses,,,,,,NÃO PEDIR MAIS
+811818,TERMO DE GARANTIA ESPANHOL,Manuais,422.00000000000017,441,775,6600,3636,0,3636,Estoque em dia,8 Meses,,,,,,
+811824,MANUAL LINHA STRONG 2000 SEM LOGO EM PORTUGUÊS,Manuais,17.25,14,25,50,91,0,91,Estoque em dia,7 Meses,,,,,,CENTRAL CCMD STRONG
+811825,MANUAL LINHA STRONG 2000 SEM LOGO EM ESPANHOL,Manuais,-,-,-,250,152,0,152,Interno,,,,,,,RODAR NA GRÁFICA (SOB DEMANDA)
+811826,CAIXA MASTER 1 - CAIXA PIVÔ VIOLÃO DOOR LINE C/ IMPRESSÃO 50X75 (ARTE PISTON CLICK),Embalagem,280,0,0,SD,313,0,313,Não usa,,,,,,,sob demanda
+811827,CAIXA MASTER 2 - CAIXA PIVÔ VIOLÃO DOOR LINE 1 METRO COM IMPRESSÃO (PISTON CLICK),Embalagem,-,0,0,SD,200,0,200,Não usa,,,,,,,
+811828,"CAIXA PARA CONTROLE REMOTO SEM LOGO 4,0 X 6,20 X 1,6",Embalagem,5,7,15,,15050,543,15593,Estoque em dia,2228 Meses,,,,,,
+811845,CAIXA MASTER 1 - CAIXA PIVÔ VIOLÃO C/ IMPRESSÃO 50X75  (ARTE TECLAM),Embalagem,71.33333333333333,100,175,SD,586,0,586,Estoque em dia,6 Meses,,,,,,
+811846,"CAIXA MOTOR LINHA TRINO AGL 24,0 X 19,5 X 24,5 ARTE TECLAM",Embalagem,108.41666666666666,164,290,1000,750,0,750,Estoque em dia,5 Meses,,,,,,
+811851,"CAIXA DO MOTOR BV CADENA 25,6X21,6X32,5",Embalagem,71.83333333333334,46,85,300,270,0,270,Estoque em dia,6 Meses,,,,,,
+811852,MANUAL BV CADENA ,Manuais,-,-,-,150,4,0,4,Interno,,,,,,,RODAR NA GRÁFICA (SOB DEMANDA)
+811857,MANUAL BV CADENA ESPANHOL,Manuais,-,-,-,300,5,0,5,Interno,,,,,,,RODAR NA GRÁFICA (SOB DEMANDA)
+811895,EMBALAGEM PARA MOTOR PIVO ROBÔ AGL,Embalagem,-,0,0,100,171,0,171,Conferir consumo,,,,,,,Embalagem Pivo Robô
+811913,CAIXA MOTOR TRINO LOG (CREMALHEIRA EMBARCADA),Embalagem,-,662,1160,2500,1284,0,1284,Estoque em dia,2 Mês,,,,,,
+811914,DIVISÓRIA DE PAPELÃO DA CAIXA TRINO LOG,Embalagem,-,662,1160,3500,4734,0,4734,Estoque em dia,7 Meses,,,,,,
+811915,CAIXA MOTOR PIVO DUPLO S/ ACIONAMENTO,Embalagem,-,313,550,483,1086,0,1086,Estoque em dia,3 Meses,24,6563,2026-02-02 00:00:00,2000,,
+811916,CAIXA MOTOR PIVO SIMPLES S/ ACIONAMENTO,Embalagem,-,88,155,523,838,0,838,Estoque em dia,10 Meses,24,6563,2026-02-02 00:00:00,1000,,
+811921,CAIXA PARDA MOTOR DESLIZANTE AGL ( MEIA ABA REFORÇADA),Embalagem,-,-,-,15000,5884,0,5884,Fazer pedido,,,,,,,
+813396,"PERFIL AL 0,75M - SOL 7 STLF-0864 6063",Perfil/ Tubo Inox,-,771,1350,,509,0,509,Fazer pedido,20 Dias,,,,,,
+813397,"PERFIL AL 1,0M - SOL 7 STLF-0864 6063",Perfil/ Tubo Inox,-,111,195,,410,0,410,Estoque em dia,4 Meses,,,,,,
+813398,"PERFIL AL 1,4M - SOL 7 STLF-0864 6063",Perfil/ Tubo Inox,-,273,480,,968,0,968,Estoque em dia,4 Meses,,,,,,
+813399,"PERFIL AL 1,5M - SOL 7 STLF-0864 6063",Perfil/ Tubo Inox,-,993,1740,,2564,0,2564,Estoque em dia,3 Meses,,,,,,
+813400,"PERFIL AL 2,0M - SOL 7 STLF-0864 6063",Perfil/ Tubo Inox,-,75,135,,186,0,186,Estoque em dia,2 Meses,,,,,,
+813401,"PERFIL AL 4,01M - SOL 7 STLF-0864 6063",Perfil/ Tubo Inox,-,-,-,,279,0,279,Fazer pedido,,,,,,,
+813557,"PERFIL AL 0,5M - SOL 7 STLF-0864 6062",Perfil/ Tubo Inox,-,76,135,,39,0,39,Fazer pedido,15 Dias,,,,,,
+813558,"PERFIL AL 2,5M SOL 7 STLF-0864 6063",Perfil/ Tubo Inox,-,17,30,,55,0,55,Estoque em dia,3 Meses,,,,,,
+813559,"PERFIL AL 3,0M SOL 7 STLF-0864 6063",Perfil/ Tubo Inox,-,55,100,,238,0,238,Estoque em dia,4 Meses,,,,,,
+813560,"PERFIL AL 3,5M SOL 7 STLF-0864 6063",Perfil/ Tubo Inox,-,34,60,,253,0,253,Estoque em dia,7 Meses,,,,,,
+813562,"PERFIL AL 3,25M SOL 7 STLF-0864 6063",Perfil/ Tubo Inox,-,62,110,,0,0,0,Sob Demanda,0 Dias,,,,,,
+813568,"PERFIL AL 4,0M STL 1851 CANCELAS",Perfil/ Tubo Inox,,36,65,,159,0,159,Estoque em dia,4 Meses,,,,,,
+813569,"PERFIL AL 4,5M STL 1851 CANCELAS",Perfil/ Tubo Inox,-,6,15,,158,0,158,Estoque em dia,26 Meses,,,,,,
+813570,"PERFIL AL 5,0M STL 1851 CANCELAS",Perfil/ Tubo Inox,-,8,15,,22,0,22,Estoque em dia,3 Meses,,,,,,
+813572,"PERFIL AL 6,0M STL 1851 CANCELAS",Perfil/ Tubo Inox,-,20,35,,110,0,110,Estoque em dia,6 Meses,,,,,,
+813605,"PERFIL AL 4,5M SOL 7 STLF-0846 6063 T5",Perfil/ Tubo Inox,-,7,15,,48,0,48,Estoque em dia,7 Meses,,,,,,
+813606,"PERFIL AL 5,0M SOL 7 STLF-0846 6063 T6",Perfil/ Tubo Inox,-,6,15,,31,0,31,Estoque em dia,5 Meses,,,,,,
+813607,"PERFIL AL 5,5M SOL 7 STLF-0846 6063 T7",Perfil/ Tubo Inox,-,3,10,,6,0,6,Fazer pedido,2 Mês,,,,,,
+813614,"PERFIL AL 3,0M STL 1851 CANCELAS",Perfil/ Tubo Inox,,29,55,,189,0,189,Estoque em dia,7 Meses,,,,,,
+813615,"PERFIL AL 2,5M STL 1851 CANCELAS",Perfil/ Tubo Inox,,1,5,,0,0,0,Fazer pedido,0 Dias,,,,,,
+813616,"PERFIL AL 3,5M STL 1851 CANCELAS",Perfil/ Tubo Inox,,9,20,,136,0,136,Estoque em dia,15 Meses,,,,,,
+916117,FITA LED 5050 RGB 60 LED S/M IP65 12 V 5M,Diversos,118.21333333333332,148,260,200,238,0,238,Fazer pedido,2 Mês,,6659,2026-02-18 00:00:00,200,,"Montagem da barreira com led (Caso não haja previsão de pedidos da china, pedir nacional)"
+916168,CANALETA INCOLOR PARA LED DA CANCELA ( PFL PC LENTE P/LED C.6000MM LEITOSO),Diversos,102.12311199999999,34,60,300,1168.354204,0,1168.354204,Estoque em dia,34 Meses,,,,,,"será utilizado somente até acabar, depois será utilizado o 916325"
+916325,CANALETA FLEXÍVEL PARA LED DA BARREIRA,Diversos,-,336,590,1201,141.5,200,341.5,Fazer pedido,30 Dias,,6658,2026-02-18 00:00:00,1000,,Substituirá o item 916168 assim que o mesmo acabar
+,,, ,,,,,,,,,,,,,,

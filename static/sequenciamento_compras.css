@@ -1,0 +1,232 @@
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --bg: #f4f1eb;
+    --panel: #fffdfa;
+    --text: #1c1a17;
+    --muted: #6a645c;
+    --border: #1f1b16;
+    --brand: #b4672d;
+    --brand-soft: #efd7c3;
+    --ok: #2f7a4b;
+    --ok-soft: #dff4e6;
+    --danger: #a63232;
+    --danger-soft: #fde1e1;
+}
+
+body {
+    margin: 20px;
+    background:
+        radial-gradient(circle at 0% 0%, #ebe3d8 0, rgba(235, 227, 216, 0) 35%),
+        radial-gradient(circle at 100% 100%, #f1dfca 0, rgba(241, 223, 202, 0) 38%),
+        var(--bg);
+    font-family: "Bahnschrift", "Franklin Gothic Medium", "Trebuchet MS", sans-serif;
+    color: var(--text);
+}
+
+.page {
+    max-width: 1240px;
+    margin: 0 auto;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+h1 {
+    margin: 0 0 4px;
+    font-size: 26px;
+}
+
+h2 {
+    margin: 0;
+    font-size: 19px;
+}
+
+p {
+    margin: 2px 0;
+    font-size: 13px;
+    color: #3f3a34;
+}
+
+.meta {
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.back {
+    background: var(--border);
+    color: #fff;
+    text-decoration: none;
+    padding: 9px 12px;
+    font-weight: 700;
+    border-radius: 8px;
+}
+
+.back:hover {
+    background: #000;
+}
+
+.panel {
+    background: var(--panel);
+    border: 2px solid var(--border);
+    border-radius: 14px;
+    padding: 14px;
+    box-shadow: 0 10px 24px rgba(20, 16, 12, 0.08);
+}
+
+.toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+    flex-wrap: wrap;
+}
+
+.filters {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    border: 1px solid var(--border);
+    background: #fff;
+    color: var(--text);
+    font-weight: 700;
+    border-radius: 999px;
+    padding: 7px 12px;
+    cursor: pointer;
+    transition: transform 0.15s ease, background 0.15s ease;
+}
+
+.filter-btn:hover {
+    transform: translateY(-1px);
+}
+
+.filter-btn.active {
+    background: var(--brand-soft);
+    color: #5f2f0e;
+    border-color: var(--brand);
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 12px;
+}
+
+.item-card {
+    border: 1px solid #d8cfc4;
+    border-radius: 12px;
+    background: #fff;
+    padding: 12px;
+    box-shadow: 0 4px 12px rgba(25, 20, 15, 0.06);
+}
+
+.item-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+.item-codigo {
+    font-size: 17px;
+}
+
+.item-descricao {
+    margin: 0 0 10px;
+    font-size: 13px;
+    color: #312c25;
+    min-height: 32px;
+}
+
+.item-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+}
+
+.item-grid > div {
+    background: #faf7f2;
+    border: 1px solid #e6ddd2;
+    border-radius: 8px;
+    padding: 6px 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.item-grid span {
+    font-size: 11px;
+    color: #6a645c;
+}
+
+.item-grid strong {
+    font-size: 13px;
+    color: var(--text);
+}
+
+.badge {
+    font-size: 11px;
+    font-weight: 700;
+    border-radius: 999px;
+    padding: 4px 8px;
+    border: 1px solid transparent;
+    white-space: nowrap;
+}
+
+.badge.ok {
+    color: #154429;
+    background: var(--ok-soft);
+    border-color: #99d2ad;
+}
+
+.badge.danger {
+    color: #6c1d1d;
+    background: var(--danger-soft);
+    border-color: #f1b5b5;
+}
+
+.badge.neutral {
+    color: #584a3f;
+    background: #efeae3;
+    border-color: #d4cbc0;
+}
+
+.empty {
+    text-align: center;
+    color: var(--muted);
+    padding: 16px 8px 8px;
+    font-weight: 700;
+}
+
+.erro {
+    background: #ffe1e1;
+    border: 2px solid #a40000;
+    padding: 12px;
+    font-weight: 700;
+}
+
+.hidden {
+    display: none !important;
+}
+
+@media (max-width: 640px) {
+    body {
+        margin: 12px;
+    }
+
+    .item-grid {
+        grid-template-columns: 1fr;
+    }
+}

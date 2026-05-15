@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Explosão de Fusos</title>
+  <link rel="stylesheet" href="/static/explosao_fusos.css">
+</head>
+<body>
+  <div class="page">
+    <header class="top">
+      <div class="title">
+        <h1>Explosão de Fusos</h1>
+        <p>Digite o produto pai e a quantidade para calcular a separação de fusos.</p>
+      </div>
+      <a class="back" href="/">Voltar</a>
+    </header>
+
+    <section class="card">
+      <div class="form">
+        <div class="field">
+          <label for="produtoPai">Produto pai</label>
+          <input id="produtoPai" placeholder="Ex: 123456" autocomplete="off">
+        </div>
+
+        <div class="field">
+          <label for="quantidade">Quantidade</label>
+          <input id="quantidade" type="number" step="0.01" placeholder="Ex: 10">
+        </div>
+
+        <button id="btnCalcular">Calcular</button>
+      </div>
+
+      <div class="actions">
+        <button id="btnSalvar" class="ghost">+ Salvar</button>
+        <button id="btnLimpar" class="ghost">Limpar</button>
+        <button id="btnImprimir" class="print">Imprimir</button>
+      </div>
+
+      <div id="status" class="status"></div>
+
+      <div class="table-wrap">
+        <table id="tabela">
+          <thead>
+            <tr>
+              <th>Código MP</th>
+              <th>Descrição</th>
+              <th class="num">Quantidade</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+
+    <footer class="hint">
+      <p>CSV esperado em <b>csv/lt_tabela_geral.csv</b> com colunas equivalentes a
+        <b>produto_pai</b>, <b>cod_mp</b>, <b>descricao_mp</b> e <b>qtd_base</b>.</p>
+    </footer>
+  </div>
+
+  <div id="modalImpressao" class="modal">
+    <div class="modal-content print-area" id="printArea">
+      <div class="print-header">
+        <div class="print-title">PRODUÇÃO: <span id="printData"></span></div>
+      </div>
+      <table class="print-table">
+        <thead>
+          <tr>
+            <th class="col-codigo">Código</th>
+            <th class="col-qtd">QTD</th>
+            <th>Descrição do produto</th>
+            <th class="col-tam">Tamanho</th>
+            <th class="col-proc">PROCEDIMENTO</th>
+          </tr>
+        </thead>
+        <tbody id="printBody"></tbody>
+        <tfoot>
+          <tr>
+            <td></td>
+            <td id="printTotal" class="col-qtd"></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+        </tfoot>
+      </table>
+      <div class="modal-actions">
+        <button id="btnFecharImpressao" class="ghost">Fechar</button>
+        <button id="btnPrint">Imprimir</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const produtoPai = document.getElementById('produtoPai');
+    const quantidade = document.getElementById('quantidade');
+    const status = document.getElementById('status');
+    const tabelaBody = document.querySelector('#tabela tbody');
+    const btn = document.getElementById('btnCalcular');
+    const btnSalvar = document.getElementById('btnSalvar');
+    const btnLimpar = document.getElementById('btnLimpar');
+    const btnImprimir = document.getElementById('btnImprimir');
+    const modalImpressao = document.getElementById('modalImpressao');
+    const printBody = document.getElementById('printBody');
+    const printTotal = document.getElementById('printTotal');
+    const printData = document.getElementById('printData');
+    const btnPrint = document.getElementById('btnPrint');
+    const btnFecharImpressao = document.getElementById('btnFecharImpressao');
+
+    let ultimoResultado = [];
+    let salvos = [];
+    let linhasImpressao = [];
+    let totalImpressao = 0;
+
+    function setStatus(msg, tipo) {
+      status.textContent = msg || '';
+      status.className = `status ${tipo || ''}`;
+    }
+
+    function limparTabela() {
+      tabelaBody.innerHTML = '';
+    }
+
+    function renderItens(itens) {
+      limparTabela();
+      itens.forEach(item => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td>${item.codigo || ''}</td>
+          <td>${item.descricao || ''}</td>
+          <td class="num">${item.quantidade}</td>
+        `;
+        tabelaBody.appendChild(tr);
+      });
+    }
+
+    async function calcular() {
+      const produto = produtoPai.value.trim();
+      const qtd = quantidade.value.trim();
+
+      limparTabela();
+      setStatus('', '');
+
+      if (!produto || !qtd) {
+        setStatus('Informe produto pai e quantidade.', 'erro');
+        return;
+      }
+
+      try {
+        const res = await fetch('/explosao_fusos/calcular', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ produto: produto, quantidade: qtd })
+        });
+
+        const data = await res.json();
+
+        if (!res.ok || !data.sucesso) {
+          setStatus(data.mensagem || 'Erro ao calcular.', 'erro');
+          return;
+        }
+
+        if (!data.itens || data.itens.length === 0) {
+          setStatus(data.mensagem || 'Nenhum fuso encontrado.', 'info');
+          return;
+        }
+
+        renderItens(data.itens);
+        ultimoResultado = data.itens || [];
+        setStatus(`Encontrados ${data.itens.length} itens.`, 'ok');
+      } catch (e) {
+        setStatus('Falha na requisição. Tente novamente.', 'erro');
+      }
+    }
+
+    function identificarTamanho(descricao) {
+      const d = (descricao || '').toUpperCase();
+      if (d.includes('NEW BV')) return 'NEW BV';
+      if (d.includes('BV')) return 'BV';
+      return '';
+    }
+
+    function itemKey(item) {
+      const codigo = item.codigo || '';
+      const descricao = item.descricao || '';
+      const tamanho = identificarTamanho(item.descricao);
+      return `${codigo}||${descricao}||${tamanho}`;
+    }
+
+    function salvar() {
+      if (!ultimoResultado || ultimoResultado.length === 0) {
+        setStatus('Calcule antes de salvar.', 'erro');
+        return;
+      }
+
+      const atuais = new Set(salvos.map(itemKey));
+      ultimoResultado.forEach(item => atuais.add(itemKey(item)));
+      if (atuais.size > 7) {
+        setStatus('Limite de 7 itens atingido.', 'erro');
+        return;
+      }
+
+      ultimoResultado.forEach(item => {
+        salvos.push({
+          codigo: item.codigo,
+          descricao: item.descricao,
+          quantidade: Number(item.quantidade) || 0,
+          tamanho: identificarTamanho(item.descricao)
+        });
+      });
+      setStatus('Produto salvo.', 'ok');
+    }
+
+    function limparSalvos() {
+      salvos = [];
+      linhasImpressao = [];
+      totalImpressao = 0;
+      setStatus('Lista limpa.', 'info');
+    }
+
+    function abrirImpressao() {
+      if (!salvos.length) {
+        setStatus('Nenhum item salvo para imprimir.', 'erro');
+        return;
+      }
+
+      const mapa = new Map();
+      salvos.forEach(item => {
+        const key = `${item.codigo}||${item.descricao}||${item.tamanho}`;
+        const atual = mapa.get(key) || 0;
+        mapa.set(key, atual + (Number(item.quantidade) || 0));
+      });
+
+      const linhas = Array.from(mapa.entries()).map(([key, qtd]) => {
+        const [codigo, descricao, tamanho] = key.split('||');
+        return { codigo, descricao, tamanho, quantidade: qtd };
+      });
+
+      linhas.sort((a, b) => a.descricao.localeCompare(b.descricao));
+      linhasImpressao = linhas.map(l => ({ ...l }));
+
+      printBody.innerHTML = '';
+      let total = 0;
+      linhas.forEach(l => {
+        total += l.quantidade;
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td class="col-codigo">${l.codigo}</td>
+          <td class="col-qtd">${Number.isInteger(l.quantidade) ? l.quantidade : l.quantidade.toFixed(10)}</td>
+          <td>${l.descricao}</td>
+          <td class="col-tam">${l.tamanho}</td>
+          <td class="col-proc"></td>
+        `;
+        printBody.appendChild(tr);
+      });
+
+      // Adiciona linhas vazias (12 no total, diminui 2 por item)
+      const linhasVazias = Math.max(12 - (linhas.length * 2), 0);
+      for (let i = 0; i < linhasVazias; i++) {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td class="col-codigo"></td>
+          <td class="col-qtd"></td>
+          <td></td>
+          <td class="col-tam"></td>
+          <td class="col-proc"></td>
+        `;
+        printBody.appendChild(tr);
+      }
+
+      const hoje = new Date();
+      const dd = String(hoje.getDate()).padStart(2, '0');
+      const mm = String(hoje.getMonth() + 1).padStart(2, '0');
+      const yyyy = hoje.getFullYear();
+      printData.textContent = `${dd}/${mm}/${yyyy}`;
+      printTotal.textContent = Number.isInteger(total) ? total : total.toFixed(3);
+      totalImpressao = total;
+
+      modalImpressao.style.display = 'flex';
+    }
+
+    function fecharImpressao() {
+      modalImpressao.style.display = 'none';
+    }
+
+    async function salvarImpressaoCsv() {
+      if (!linhasImpressao.length) {
+        throw new Error('Nenhum item para salvar no CSV.');
+      }
+
+      const payload = {
+        data_impressao: printData.textContent || '',
+        total_geral: totalImpressao,
+        itens: linhasImpressao.map(l => ({
+          codigo: l.codigo || '',
+          quantidade: Number(l.quantidade) || 0,
+          descricao: l.descricao || '',
+          tamanho: l.tamanho || '',
+          procedimento: ''
+        }))
+      };
+
+      const res = await fetch('/explosao_fusos/impressao', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok || !data.sucesso) {
+        throw new Error(data.mensagem || 'Falha ao salvar separacao.csv.');
+      }
+    }
+
+    btn.addEventListener('click', calcular);
+    btnSalvar.addEventListener('click', salvar);
+    btnLimpar.addEventListener('click', limparSalvos);
+    btnImprimir.addEventListener('click', abrirImpressao);
+    btnFecharImpressao.addEventListener('click', fecharImpressao);
+    btnPrint.addEventListener('click', async () => {
+      try {
+        await salvarImpressaoCsv();
+        window.print();
+        setStatus('Impressao realizada e separacao.csv salvo.', 'ok');
+      } catch (e) {
+        setStatus(e.message || 'Falha ao salvar separacao.csv.', 'erro');
+      }
+    });
+    quantidade.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') calcular();
+    });
+    produtoPai.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') calcular();
+    });
+  </script>
+</body>
+</html>
