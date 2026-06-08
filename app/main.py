@@ -1,19 +1,22 @@
-try:
-    from app.copiar_relatorio import main as copiar
-    from app.extrair_csvs import main as extracao
-    from app.estoque.coletaEstoque import main as estoque
-    from app.estoque.Estoque_diversos import gerar_csv_diversos as diversos
+from .estoque import (
+    ColetarEstoque,
+    agrupar_diversos
+)
 
-except:
-    from copiar_relatorio import main as copiar
-    from extrair_csvs import main as extracao
-    from app.estoque.coletaEstoque import main as estoque
-    from app.estoque.Estoque_diversos import gerar_csv_diversos as diversos
-finally:
-    import asyncio
+from .relatorio import (
+    CopiarRelatorio as copiar,
+    extraircsv as extracao,
+    relatorioDiversos
+)
+
+import asyncio
+
 
 
 class main:
+    """
+    Arquivo responsável por orquetrar scraping, limpeza e carregamentos de dados do relatório diário
+    """
     def __init__(self):
         pass
 
@@ -28,10 +31,10 @@ class main:
             raise
 
     async def coletar_estoque(self):
-        await asyncio.to_thread(estoque().executar)
+        await asyncio.to_thread(ColetarEstoque().executar)
         print("Coleta de estoque concluída!")
 
-        await asyncio.to_thread(diversos)
+        await asyncio.to_thread(agrupar_diversos)
         print("Estoque diversos agrupados")
 
 

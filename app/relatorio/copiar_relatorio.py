@@ -7,15 +7,10 @@ class main:
 
     def relatorio_vendas(self):
                 
-        # Ajuste o caminho de origem para bater exatamente com o nome real do arquivo.
         origem = r"Z:\PCP\2.2- Relatório Semanal - NOVO.xlsb"
 
-        # Garante que a pasta de destino exista.
         destino = r"temp\relatorio_semanal_temp.xlsx"
         os.makedirs(os.path.dirname(destino), exist_ok=True)
-
-
-
 
         origem_lista = r"Z:\PCP\05 - Motores\Dados\LT's - Motores - SETEMBRO.xlsx"
 

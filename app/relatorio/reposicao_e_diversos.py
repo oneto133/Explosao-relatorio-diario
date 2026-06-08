@@ -2,10 +2,15 @@ import pandas as pd
 import os
 
 class main:
-
+    """
+    Filtra para gerar o relatório de reposição e diversos
+    Esse arquivo gera os dados que serão usado na aplicação de etiquetas
+    """
     def __init__(self):
         
+        #Caminho do relatório extraído
         self.relatorio = r"csv/Pendencias - Geral.csv"
+        #Caminho da aplicação de etiquetas na rede
         self.reposicao_e_diversos = r"Y:/Produção/Etiquetas/Nova pasta/csv/Reposicao e Diversos.csv"
 
     def filtro(self):

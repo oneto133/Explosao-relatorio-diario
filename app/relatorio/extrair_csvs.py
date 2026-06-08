@@ -3,6 +3,7 @@ import sys
 import pandas as pd
 
 
+
 def _coerce_integer_like_columns(df: pd.DataFrame) -> pd.DataFrame:
     for col in df.columns:
         series = df[col]
