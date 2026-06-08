@@ -1,0 +1,280 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Bahnschrift", "Trebuchet MS", "Franklin Gothic Medium", sans-serif;
+  color: #152028;
+  background:
+    radial-gradient(1200px 420px at 10% -10%, rgba(221, 153, 56, 0.24), transparent 60%),
+    radial-gradient(900px 380px at 100% 0%, rgba(55, 136, 185, 0.2), transparent 58%),
+    linear-gradient(180deg, #f4f0e6 0%, #eef3f8 62%, #f7f9fb 100%);
+}
+
+.page {
+  width: min(1280px, 96%);
+  margin: 24px auto 28px;
+  display: grid;
+  gap: 14px;
+}
+
+.panel {
+  background: rgba(255, 255, 255, 0.93);
+  border: 1px solid rgba(15, 37, 58, 0.15);
+  border-radius: 14px;
+  box-shadow: 0 12px 30px rgba(13, 35, 53, 0.08);
+  padding: 14px 16px;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.title-wrap h1 {
+  margin: 0;
+  font-size: clamp(1.6rem, 2.2vw, 2rem);
+  letter-spacing: 0.4px;
+  color: #12344f;
+}
+
+.title-wrap p {
+  margin: 5px 0 0;
+  color: #34546d;
+  font-size: 0.95rem;
+}
+
+.back {
+  text-decoration: none;
+  color: #fff;
+  background: linear-gradient(135deg, #1e4f78, #12344f);
+  padding: 10px 16px;
+  border-radius: 999px;
+  font-weight: 700;
+}
+
+.controls .row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  gap: 10px;
+}
+
+.controls .row + .row {
+  margin-top: 10px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.field label {
+  font-size: 0.83rem;
+  font-weight: 700;
+  color: #2c4c63;
+  letter-spacing: 0.2px;
+}
+
+.field input,
+.field select {
+  height: 40px;
+  border: 1px solid #c4d2df;
+  border-radius: 10px;
+  padding: 0 11px;
+  font-size: 0.95rem;
+  background: #fff;
+}
+
+.field input:focus,
+.field select:focus {
+  outline: 2px solid rgba(31, 110, 167, 0.28);
+  border-color: #2d78ac;
+}
+
+.code-field {
+  flex: 1 1 280px;
+}
+
+.field.small {
+  width: 160px;
+}
+
+.primary {
+  height: 40px;
+  border: 0;
+  padding: 0 18px;
+  border-radius: 10px;
+  font-weight: 700;
+  cursor: pointer;
+  color: #fff;
+  background: linear-gradient(135deg, #d26d33, #a74a1f);
+}
+
+.settings {
+  align-items: center;
+}
+
+.check {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #26465c;
+}
+
+.meta {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 10px;
+}
+
+.meta-item {
+  background: #f8fbff;
+  border: 1px solid #d6e2ed;
+  border-radius: 10px;
+  padding: 10px 12px;
+}
+
+.meta-item.grow {
+  min-width: 0;
+}
+
+.meta-label {
+  display: block;
+  font-size: 0.76rem;
+  color: #5a7388;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.meta-item strong {
+  display: block;
+  margin-top: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #12364f;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(120px, 1fr));
+  gap: 10px;
+}
+
+.stat-card {
+  background: linear-gradient(145deg, #f7faff 0%, #ecf3fb 100%);
+  border: 1px solid #d3dfec;
+  border-radius: 11px;
+  padding: 10px 12px;
+}
+
+.stat-card span {
+  display: block;
+  font-size: 0.78rem;
+  color: #4a6579;
+}
+
+.stat-card strong {
+  display: block;
+  margin-top: 5px;
+  color: #102f46;
+  font-size: 1.15rem;
+}
+
+.status {
+  min-height: 24px;
+  padding: 6px 10px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: #21435d;
+  background: #edf4fb;
+}
+
+.status.error {
+  color: #7f1f1f;
+  background: #fdeaea;
+}
+
+.status.ok {
+  color: #175235;
+  background: #e8f8ef;
+}
+
+.chart-wrap {
+  margin-top: 10px;
+  height: 420px;
+}
+
+.table-panel h2 {
+  margin: 0 0 10px;
+  color: #1e3f58;
+  font-size: 1.1rem;
+}
+
+.table-wrap {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+}
+
+th, td {
+  border: 1px solid #d3dfe9;
+  padding: 8px 10px;
+}
+
+th {
+  text-align: left;
+  background: #f0f6fb;
+  color: #1f4159;
+}
+
+td {
+  background: #fff;
+}
+
+@media (max-width: 980px) {
+  .meta {
+    grid-template-columns: 1fr;
+  }
+
+  .stats {
+    grid-template-columns: repeat(2, minmax(120px, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .page {
+    width: 95%;
+    margin-top: 14px;
+  }
+
+  .topbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .field.small {
+    width: 100%;
+  }
+
+  .stats {
+    grid-template-columns: 1fr;
+  }
+
+  .chart-wrap {
+    height: 320px;
+  }
+}

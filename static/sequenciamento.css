@@ -131,6 +131,15 @@ body {
     background: #245723;
 }
 
+.analise-fab {
+    top: calc(50% + 112px);
+    background: #1f4d7a;
+}
+
+.analise-fab:hover {
+    background: #173a5d;
+}
+
 @media (max-width: 1100px) {
     .grid {
         font-size: 9px;

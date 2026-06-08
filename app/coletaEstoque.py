@@ -73,7 +73,7 @@ class main:
 
     def imprimir_relatorio(self, caminho, chave):
         if chave == "10":
-            sleep(1) #Tempo de carregamento do relatório
+            sleep(15) #Tempo de carregamento do relatório
             while True:
                 if self.verificar():
                     print("Não carregou")
@@ -131,9 +131,19 @@ class main:
     
         return hoje, ano, seis, tres
     
+    def ordens_de_producao(self):
+        #Abrir status das ops
+        pi.click(x=19, y=28) #Industria
+        sleep(0.5)
+        pi.click(x=74, y=68) #Relatórios
+        sleep(0.5)
+        pi.click(x=220, y=73) #Status das OP´S
+        sleep(0.5)
+
+
+    
     def verificar(self):
         img = r"img\estoqueProdutos.png"
-
 
         try:
             for pos in pi.locateAllOnScreen(img, confidence=0.9):

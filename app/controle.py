@@ -18,10 +18,14 @@ class main:
         pass
 
     async def main_async(self):
-        await asyncio.gather(
-            self.coletar_estoque(),
-            self.atualizar_dados()
-        )
+        try:
+            await asyncio.gather(
+                self.coletar_estoque(),
+                self.atualizar_dados()
+            )
+        except asyncio.CancelledError:
+            print("Execução cancelada.")
+            raise
 
     async def coletar_estoque(self):
         await asyncio.to_thread(estoque().executar)
@@ -38,9 +42,13 @@ class main:
         await asyncio.to_thread(extracao)
         print("Extração realizada")
         print("Relatório Consolidado")
+        
 
 
 
 if __name__ == "__main__":
     programa = main()
-    asyncio.run(programa.main_async())
+    try:
+        asyncio.run(programa.main_async())
+    except KeyboardInterrupt:
+        print("Execução interrompida pelo usuário.")

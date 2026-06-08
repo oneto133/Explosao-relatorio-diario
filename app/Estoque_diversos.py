@@ -35,6 +35,31 @@ def _normalizar_xlsx(caminho_xlsx: Path) -> None:
                     houve_ajuste = True
                     conteudo = texto_normalizado.encode("utf-8")
 
+            elif item.filename == "xl/styles.xml":
+                texto = conteudo.decode("utf-8", errors="ignore")
+
+                texto_normalizado = (
+                    texto.replace("índexed=", "indexed=")
+                )
+
+                if texto_normalizado != texto:
+                    houve_ajuste = True
+                    conteudo = texto_normalizado.encode("utf-8")
+
+            elif item.filename.startswith("xl/worksheets/") and item.filename.endswith(".xml"):
+                texto = conteudo.decode("utf-8", errors="ignore")
+
+                texto_normalizado = re.sub(
+                    r'\sfirstPageNo="[^"]*"',
+                    "",
+                    texto,
+                    flags=re.IGNORECASE,
+                )
+
+                if texto_normalizado != texto:
+                    houve_ajuste = True
+                    conteudo = texto_normalizado.encode("utf-8")
+
             elif item.filename == "docProps/core.xml":
                 texto = conteudo.decode("utf-8", errors="ignore")
                 texto_normalizado = re.sub(

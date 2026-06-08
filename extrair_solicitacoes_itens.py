@@ -1,5 +1,7 @@
 import argparse
 import re
+import zipfile
+import xml.etree.ElementTree as ET
 from datetime import datetime
 from pathlib import Path
 
@@ -21,6 +23,11 @@ RE_QTD_DEPOIS = re.compile(
 )
 # Ex.: 401225 - CORRENTE ... (sem quantidade explícita)
 RE_COD_DESC = re.compile(r"(?<!\d)(\d{5,6})(?!\d)\s*-\s*[A-ZÀ-ÿ]", re.IGNORECASE)
+XLSX_NS = {
+    "main": "http://schemas.openxmlformats.org/spreadsheetml/2006/main",
+    "rel": "http://schemas.openxmlformats.org/officeDocument/2006/relationships",
+    "pkgrel": "http://schemas.openxmlformats.org/package/2006/relationships",
+}
 
 
 def parse_dt(texto):
@@ -29,6 +36,99 @@ def parse_dt(texto):
 
 def fmt_dt(dt):
     return dt.strftime("%Y-%m-%d %H:%M:%S") if dt else "-"
+
+
+def _coluna_excel_para_indice(ref):
+    letras = re.match(r"([A-Z]+)", ref or "")
+    if not letras:
+        return None
+    valor = 0
+    for char in letras.group(1):
+        valor = valor * 26 + (ord(char) - ord("A") + 1)
+    return valor - 1
+
+
+def _local_name(tag):
+    return tag.split("}", 1)[-1]
+
+
+def _ler_xlsx_primeira_aba(path):
+    with zipfile.ZipFile(path) as zf:
+        shared_strings = []
+        if "xl/sharedStrings.xml" in zf.namelist():
+            root = ET.fromstring(zf.read("xl/sharedStrings.xml"))
+            for si in root.findall("main:si", XLSX_NS):
+                partes = []
+                for node in si.iter():
+                    if _local_name(node.tag) == "t" and node.text:
+                        partes.append(node.text)
+                shared_strings.append("".join(partes))
+
+        workbook = ET.fromstring(zf.read("xl/workbook.xml"))
+        sheets = workbook.find("main:sheets", XLSX_NS)
+        if sheets is None:
+            return pd.DataFrame()
+
+        primeiro_sheet = next(iter(sheets), None)
+        if primeiro_sheet is None:
+            return pd.DataFrame()
+
+        rel_id = primeiro_sheet.attrib.get(f"{{{XLSX_NS['rel']}}}id")
+        rels = ET.fromstring(zf.read("xl/_rels/workbook.xml.rels"))
+        target = None
+        for rel in rels.findall("pkgrel:Relationship", XLSX_NS):
+            if rel.attrib.get("Id") == rel_id:
+                target = rel.attrib.get("Target")
+                break
+
+        if not target:
+            target = "worksheets/sheet1.xml"
+        sheet_path = f"xl/{target.lstrip('/')}"
+        if sheet_path not in zf.namelist():
+            sheet_path = "xl/worksheets/sheet1.xml"
+
+        sheet = ET.fromstring(zf.read(sheet_path))
+        linhas = []
+        for row in sheet.findall(".//main:sheetData/main:row", XLSX_NS):
+            valores = []
+            for cell in row.findall("main:c", XLSX_NS):
+                ref = cell.attrib.get("r", "")
+                idx = _coluna_excel_para_indice(ref)
+                if idx is None:
+                    continue
+
+                while len(valores) <= idx:
+                    valores.append("")
+
+                tipo = cell.attrib.get("t", "")
+                valor = ""
+                if tipo == "s":
+                    v = cell.find("main:v", XLSX_NS)
+                    if v is not None and v.text is not None:
+                        try:
+                            valor = shared_strings[int(v.text)]
+                        except (ValueError, IndexError):
+                            valor = v.text
+                elif tipo == "inlineStr":
+                    is_node = cell.find("main:is", XLSX_NS)
+                    if is_node is not None:
+                        textos = []
+                        for node in is_node.iter():
+                            if _local_name(node.tag) == "t" and node.text:
+                                textos.append(node.text)
+                        valor = "".join(textos)
+                else:
+                    v = cell.find("main:v", XLSX_NS)
+                    if v is not None and v.text is not None:
+                        valor = v.text
+
+                valores[idx] = valor
+
+            linhas.append(valores)
+
+    max_cols = max((len(linha) for linha in linhas), default=0)
+    linhas = [linha + [""] * (max_cols - len(linha)) for linha in linhas]
+    return pd.DataFrame(linhas)
 
 
 def normalizar_qtd(valor):
@@ -75,7 +175,10 @@ def normalizar_unidade(valor):
 
 
 def extrair_dados(arquivo_xlsx):
-    df = pd.read_excel(arquivo_xlsx, header=None, dtype=str).fillna("")
+    if arquivo_xlsx.suffix.lower() == ".xlsx":
+        df = _ler_xlsx_primeira_aba(arquivo_xlsx).fillna("")
+    else:
+        df = pd.read_excel(arquivo_xlsx, header=None, dtype=str).fillna("")
 
     col_data = 0
     col_interacao = 3
@@ -171,7 +274,7 @@ def main():
     )
     parser.add_argument(
         "--output",
-        default=r"c:\Users\pc\Desktop\Scraping_Explosão\csv\solicitacoes_itens2.csv",
+        default=r"c:\Users\pc\Desktop\Scraping_Explosao\csv\solicitacoes_itens2.csv",
         help="Caminho do arquivo CSV de saída.",
     )
     args = parser.parse_args()

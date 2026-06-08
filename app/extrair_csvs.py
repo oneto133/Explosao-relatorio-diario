@@ -44,7 +44,7 @@ def export_sheet_to_csv(excel_path: str, sheet_name: str, csv_path: str) -> None
     df = _coerce_integer_like_columns(df)
 
     if sheet_name == "Pendências - Geral":
-        df = df.applymap(_format_integer_if_numeric)
+        df = df.map(_format_integer_if_numeric)
 
     # Força formatação da Column5 para não sair com ".0" quando é inteiro
     if "Column5" in df.columns:
@@ -63,21 +63,20 @@ def export_sheet_to_csv(excel_path: str, sheet_name: str, csv_path: str) -> None
 
             df["Column5"] = df["Column5"].map(_fmt_col5)
     os.makedirs(os.path.dirname(csv_path), exist_ok=True)
-    df.to_csv(csv_path, index=False)
+    df.to_csv(csv_path, index=False, encoding="utf-8-sig")
 
 
 def limpar_relatorio_csv() -> None:
-    df = pd.read_csv(r"csv/Pendencias - Geral.csv", encoding="latin-1", skiprows=1)
+    df = pd.read_csv(r"csv/Pendencias - Geral.csv", encoding="utf-8-sig", skiprows=1)
 
-    motores = df[(df["Departamento"] == "MOTORES") & (df["Unnamed: 13"] != 0)]
-    cancelas = df[(df["Departamento"] == "CANCELAS") & (df["Unnamed: 13"] != 0)]
+    motores = df[(df["Departamento"] == "MOTORES") & (df["Unnamed: 11"] != 0)]
+    cancelas = df[(df["Departamento"] == "CANCELAS") & (df["Unnamed: 11"] != 0)]
 
     novo = pd.concat([motores, cancelas])
     novo.to_csv(r"csv/relatorio_diario.csv", index=False, encoding="latin1")
 
 
 def main() -> int:
-    # Ajuste os nomes/paths se necessário
     ltegeral_path = r"temp/LTgeral.xlsx"
     relatorio_path = r"temp/relatorio_semanal_temp.xlsx"
 

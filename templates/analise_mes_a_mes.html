@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Analise Mes a Mes</title>
+  <link rel="stylesheet" href="/static/analise_mes_a_mes.css">
+</head>
+<body>
+  <div class="page">
+    <header class="topbar">
+      <div class="title-wrap">
+        <h1>Analise Mes a Mes</h1>
+        <p>Pesquise o codigo e acompanhe variacao mensal, tendencia e previsao.</p>
+      </div>
+      <a class="back" href="/sequenciamento">Voltar</a>
+    </header>
+
+    <section class="panel controls">
+      <div class="row">
+        <div class="field code-field">
+          <label for="codigoInput">Codigo do item</label>
+          <input id="codigoInput" type="text" placeholder="Ex: 707039" autocomplete="off">
+        </div>
+        <button id="btnBuscar" class="primary">Analisar</button>
+      </div>
+
+      <div class="row settings">
+        <div class="field small">
+          <label for="maPeriodo">Media movel (meses)</label>
+          <select id="maPeriodo">
+            <option value="2">2</option>
+            <option value="3" selected>3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+          </select>
+        </div>
+        <div class="field small">
+          <label for="forecastMeses">Previsao (meses)</label>
+          <input id="forecastMeses" type="number" min="1" max="12" value="6">
+        </div>
+        <label class="check"><input id="showMediaMovel" type="checkbox" checked> Media movel</label>
+        <label class="check"><input id="showTendencia" type="checkbox" checked> Tendencia linear</label>
+        <label class="check"><input id="showPrevLinear" type="checkbox" checked> Previsao linear</label>
+        <label class="check"><input id="showPrevPreditiva" type="checkbox" checked> Previsao preditiva</label>
+      </div>
+    </section>
+
+    <section class="panel meta">
+      <div class="meta-item">
+        <span class="meta-label">Codigo</span>
+        <strong id="metaCodigo">-</strong>
+      </div>
+      <div class="meta-item grow">
+        <span class="meta-label">Descricao</span>
+        <strong id="metaDescricao">-</strong>
+      </div>
+    </section>
+
+    <section class="panel stats">
+      <div class="stat-card">
+        <span>Media mensal</span>
+        <strong id="statMediaMensal">-</strong>
+      </div>
+      <div class="stat-card">
+        <span>Tendencia (coef.)</span>
+        <strong id="statTendencia">-</strong>
+      </div>
+      <div class="stat-card">
+        <span>Volatilidade</span>
+        <strong id="statVolatilidade">-</strong>
+      </div>
+      <div class="stat-card">
+        <span>Proximo mes (pred.)</span>
+        <strong id="statProximoMes">-</strong>
+      </div>
+    </section>
+
+    <section class="panel chart-panel">
+      <div id="status" class="status">Informe um codigo para iniciar a analise.</div>
+      <div class="chart-wrap">
+        <canvas id="analiseChart"></canvas>
+      </div>
+    </section>
+
+    <section class="panel table-panel">
+      <h2>Analise preditiva dos proximos meses</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Mes</th>
+              <th>Prev. Linear</th>
+              <th>Prev. Media Movel</th>
+              <th>Prev. Preditiva</th>
+            </tr>
+          </thead>
+          <tbody id="predTableBody">
+            <tr><td colspan="4">Sem dados para previsao.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="/static/analise_mes_a_mes.js"></script>
+</body>
+</html>

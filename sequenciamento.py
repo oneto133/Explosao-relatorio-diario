@@ -5,13 +5,14 @@ from pathlib import Path
 import pandas as pd
 from datetime import date
 import unicodedata
+import re
 
 app = Flask(__name__)
 
 # =========================
 # PATHS
 # =========================
-BASE = Path.home() / "Desktop" / "Scraping_Explosão"
+BASE = Path.home() / "Desktop" / "Scraping_Explosao"
 CSV_DIR = BASE / "csv"
 
 CSV_OPS = "Report.csv"
@@ -21,6 +22,7 @@ CSV_OPS_MANUAL = "ops_manual.csv"
 CSV_LT_TABELA_GERAL = "lt_tabela_geral.csv"
 CSV_ESTOQUE_COMPRAS = "estoque_itens_comprados.csv"
 CSV_SEPARACAO = "separacao.csv"
+CSV_ANALISE_MES_A_MES = "explosao mes a mes .csv"
 
 ESTOQUE_COMPRAS_XLSX = Path(r"Y:\Produção\Estoque\Estoque itens comprados.xlsx")
 ESTOQUE_COMPRAS_SHEET = "Estoque Geral"
@@ -31,7 +33,7 @@ ESTOQUE_COMPRAS_SHEET = "Estoque Geral"
 # =========================
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return render_template('explosao_fusos.html')
 
 
 # =========================
@@ -55,6 +57,10 @@ def sequenciamento_compras():
         origem_excel=str(ESTOQUE_COMPRAS_XLSX),
         csv_cache=str(CSV_DIR / CSV_ESTOQUE_COMPRAS),
     )
+
+@app.route('/sequenciamento/analise-mes-a-mes')
+def sequenciamento_analise_mes_a_mes():
+    return render_template('analise_mes_a_mes.html')
 
 
 # =========================
@@ -638,6 +644,105 @@ def _carregar_compras_pendentes():
         itens.append(item)
 
     return itens, None
+
+
+# =========================
+# ANÁLISE MÊS A MÊS
+# =========================
+def _parse_num_analise(v):
+    s = str(v).strip()
+    if s == "" or s.lower() in {"nan", "none", "null", "-"}:
+        return 0.0
+    s = s.replace(" ", "")
+    if s.count(",") == 1 and s.count(".") >= 1:
+        s = s.replace(".", "").replace(",", ".")
+    elif s.count(",") == 1 and s.count(".") == 0:
+        s = s.replace(",", ".")
+    try:
+        return float(s)
+    except Exception:
+        return 0.0
+
+
+def _colunas_mes_analise(df):
+    cols = [c for c in df.columns if re.fullmatch(r"\d{2}/\d{4}", str(c).strip())]
+    cols = sorted(
+        cols,
+        key=lambda c: pd.to_datetime(f"01/{c}", format="%d/%m/%Y", errors="coerce")
+    )
+    return cols
+
+
+def _carregar_analise_mes_a_mes():
+    path = CSV_DIR / CSV_ANALISE_MES_A_MES
+    if not path.exists():
+        return None, "CSV de análise não encontrado. Gere 'explosao mes a mes .csv' na pasta csv."
+
+    try:
+        df = pd.read_csv(path, dtype=str, sep=None, engine="python")
+    except Exception as e:
+        return None, f"Erro ao ler CSV de análise mês a mês: {e}"
+
+    df = df.dropna(how="all")
+    if df.empty:
+        return None, "CSV de análise mês a mês está vazio."
+
+    codigo_col = _coluna_por_alias(df, ["codigo", "código", "cod"])
+    desc_col = _coluna_por_alias(df, ["descricao", "descrição", "desc"])
+    if not codigo_col:
+        return None, "Coluna de código não encontrada no CSV de análise."
+    if not desc_col:
+        desc_col = codigo_col
+
+    mes_cols = _colunas_mes_analise(df)
+    if not mes_cols:
+        return None, "Nenhuma coluna mensal no formato MM/AAAA foi encontrada no CSV."
+
+    df = df[[codigo_col, desc_col] + mes_cols].copy()
+    df.columns = ["codigo", "descricao"] + mes_cols
+    df["codigo"] = df["codigo"].astype(str).str.strip()
+    df["descricao"] = df["descricao"].astype(str).str.strip()
+    df["codigo_norm"] = df["codigo"].apply(_norm_code)
+    return df, None
+
+
+@app.route('/api/analise-mes-a-mes/item')
+def api_analise_mes_a_mes_item():
+    codigo = str(request.args.get("codigo", "")).strip()
+    if not codigo:
+        return jsonify({"sucesso": False, "mensagem": "Informe um código para pesquisar."}), 400
+
+    df, erro = _carregar_analise_mes_a_mes()
+    if erro:
+        return jsonify({"sucesso": False, "mensagem": erro}), 400
+
+    codigo_norm = _norm_code(codigo)
+    hit = df[df["codigo_norm"] == codigo_norm]
+    if hit.empty:
+        # fallback por "contains" quando o usuário cola formato com pontos/traços
+        hit = df[df["codigo"].astype(str).str.contains(codigo, na=False)]
+
+    if hit.empty:
+        return jsonify({"sucesso": False, "mensagem": "Código não encontrado no CSV de análise."}), 404
+
+    row = hit.iloc[0]
+    mes_cols = [c for c in df.columns if re.fullmatch(r"\d{2}/\d{4}", str(c).strip())]
+    serie = [{"mes": col, "valor": _parse_num_analise(row[col])} for col in mes_cols]
+
+    return jsonify(
+        {
+            "sucesso": True,
+            "item": {
+                "codigo": str(row["codigo"]).strip(),
+                "descricao": str(row["descricao"]).strip(),
+                "serie": serie,
+            },
+            "meta": {
+                "meses_disponiveis": mes_cols,
+                "origem_csv": str(CSV_DIR / CSV_ANALISE_MES_A_MES),
+            },
+        }
+    )
 
 
 # =========================
