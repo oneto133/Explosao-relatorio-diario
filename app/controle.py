@@ -1,14 +1,14 @@
 try:
     from app.copiar_relatorio import main as copiar
     from app.extrair_csvs import main as extracao
-    from app.coletaEstoque import main as estoque
-    from app.Estoque_diversos import gerar_csv_diversos as diversos
+    from app.estoque.coletaEstoque import main as estoque
+    from app.estoque.Estoque_diversos import gerar_csv_diversos as diversos
 
 except:
     from copiar_relatorio import main as copiar
     from extrair_csvs import main as extracao
-    from coletaEstoque import main as estoque
-    from Estoque_diversos import gerar_csv_diversos as diversos
+    from app.estoque.coletaEstoque import main as estoque
+    from app.estoque.Estoque_diversos import gerar_csv_diversos as diversos
 finally:
     import asyncio
 

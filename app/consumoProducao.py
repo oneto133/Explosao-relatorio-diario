@@ -1,9 +1,13 @@
 import pyautogui as pi
-from coletaEstoque import main as es
+from app.estoque.coletaEstoque import main as es
 from time import sleep
 from datetime import date, timedelta
 
 class main:
+    """
+    Esse arquivo foi usado para coletar dados de consumo de produção
+    Substituido pela extração única e filtros automáticos com data.
+    """
     def __init__(self):
         self.abrir_piloto()
         sleep(0.2)

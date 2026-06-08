@@ -1,4 +1,4 @@
-from app.coletaEstoque import main
+from app.estoque.coletaEstoque import main
 import tkinter as tk
 from tkinter import messagebox, Button
 from app.controle import main as controle
