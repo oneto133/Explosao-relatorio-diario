@@ -45,6 +45,9 @@ class main:
         await asyncio.to_thread(extracao)
         print("Extração realizada")
         print("Relatório Consolidado")
+
+        await asyncio.to_thread(relatorioDiversos().filtro)
+        print("Itens de reposição carregados")
         
 
 
