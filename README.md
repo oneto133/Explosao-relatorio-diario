@@ -1,4 +1,4 @@
-# Aplicação `app`
+# Aplicação de apoio ao PCP
 
 Este projeto foi organizado para automatizar tarefas do dia a dia ligadas a estoque e relatórios internos.
 
