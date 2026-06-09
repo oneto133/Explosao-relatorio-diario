@@ -11,7 +11,9 @@ import pandas as pd
 
 
 BASE_DIR = Path(__file__).resolve().parent
-CSV_DIR = BASE_DIR / "csv"
+APP = BASE_DIR.parent
+PAI = APP.parent
+CSV_DIR = PAI / "csv"
 
 LISTA_TECNICA_PATH = CSV_DIR / "TabelaGeral.csv"
 OP_PATH = Path(r"Z:\PCP\05 - Motores\Dados\LeadTimeProd.xlsx")
@@ -218,7 +220,7 @@ def _prepare_op(df_raw: pd.DataFrame) -> pd.DataFrame:
 
 def _last_12_month_starts(data_base: pd.Timestamp) -> list[pd.Timestamp]:
     fim_mes_base = pd.Timestamp(year=data_base.year, month=data_base.month, day=1)
-    return [fim_mes_base - pd.DateOffset(months=offset) for offset in range(11, -1, -1)]
+    return [fim_mes_base - pd.DateOffset(months=offset) for offset in range(12, -1, -1)]
 
 
 def _build_monthly_production(df_op: pd.DataFrame, month_starts: Iterable[pd.Timestamp]) -> pd.DataFrame:

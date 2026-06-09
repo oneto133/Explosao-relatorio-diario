@@ -12,6 +12,7 @@ PROJECT_DIR = Path(__file__).resolve().parents[2]
 CSV_DIR = PROJECT_DIR / "csv"
 TEMP_DIR = PROJECT_DIR / "temp" / "lista_tecnica"
 RE_CODIGO_7 = re.compile(r"^\d{6,7}(?:\.0+)?$")
+RE_DECIMAL = re.compile(r"^-?\d+(?:\.\d+)?$")
 
 
 def corrigir_mojibake(texto: object) -> object:
@@ -56,6 +57,15 @@ def _texto_preservado(valor: object) -> str:
         if inteiro.isdigit():
             return inteiro
 
+    return texto
+
+
+def _decimal_com_virgula(valor: object) -> str:
+    texto = _texto_preservado(valor)
+    if not texto:
+        return ""
+    if RE_DECIMAL.fullmatch(texto) and "." in texto:
+        return texto.replace(".", ",")
     return texto
 
 
@@ -201,6 +211,8 @@ def preparar_lista_tecnica(paths_csv: Path, output_csv: Path) -> tuple[pd.DataFr
 
         try:
             df = ler_arquivo_tabelado(copia_temp)
+            if "Column5" in df.columns:
+                df["Column5"] = df["Column5"].map(_decimal_com_virgula)
             saida_temp = normalizados_dir / f"{indice:03d}_{origem.stem}.csv"
             salvar_csv_normalizado(df, saida_temp)
             frames.append(df)
@@ -215,7 +227,10 @@ def preparar_lista_tecnica(paths_csv: Path, output_csv: Path) -> tuple[pd.DataFr
     resultado = resultado.dropna(how="all").drop_duplicates().reset_index(drop=True)
     resultado = resultado.fillna("")
     for col in resultado.columns:
-        resultado[col] = resultado[col].map(_texto_preservado)
+        if col == "Column5":
+            resultado[col] = resultado[col].map(_decimal_com_virgula)
+        else:
+            resultado[col] = resultado[col].map(_texto_preservado)
 
     salvar_csv_normalizado(resultado, output_csv)
 
