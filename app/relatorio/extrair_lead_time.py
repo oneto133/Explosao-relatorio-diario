@@ -7,6 +7,19 @@ from pathlib import Path
 
 import pandas as pd
 
+"""O intuito dessa aplicação é extrair o lead time de itens comprados
+atualmente trabalhamos com um sistema onde os setores inserem os itens 
+das quais estão necessitados, então um administrador que controla gastos
+passa ao comprador após aprovação, o comprador vai mudando o status entre
+em contação, aguardando liberação da diretoria, pedido de compra realizado
+e concluído, então essas solicitações e logs ficam salvos, nessa aplicação
+há como extrair relatórios de soicitações de diversas maneiras, então a ideia foi
+pegar a data da solicitação pelo setor e a data de conclusão pelo comprador
+o que significa que o item está disponível na fábrica, então eu extrai as
+solicitações e códigos e fui cruzando os dados, após é subtraido a data de 
+consclusão da data inicial e calculado a média com base no código, assim
+se obtendo um lead time de itens, tendo dados detalhados disponíveis para
+pegar prazo mínimo e máximo."""
 
 RE_SOLIC = re.compile(r"Solicita(?:ç|c)ão\s*:\s*(\d+)", re.IGNORECASE)
 RE_DT = re.compile(r"^\s*(\d{2}/\d{2}/\d{2}\s+\d{2}:\d{2}:\d{2})\s*$")

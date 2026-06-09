@@ -7,8 +7,19 @@ from dataclasses import dataclass
 from difflib import SequenceMatcher
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent
-TXT_DIR = ROOT / "txt"
+
+"""
+Essa automação tem o intuito de pegar uma mensagem recebida de um movimentador de estoque
+então ao passar ao pcp, é avaliado e então inserido em movimentador_injeção.txt para
+padronização e separação no setor de almoxarifado, o intuito da aplicação é excluir a necessidade
+de digitação manual e automatizar tarefas simples que demorariam horas para serem escritas com todos
+os tratamentos que tem hoje, essa aplicação foi escrita de forma supervisionada usando codex com
+pouca injeção, usando de técnicas de engenharia de contexto para poder se te o maior aproveitamento da 
+ferramenta disponível com o menor uso de tokens possível.
+"""
+ROOT = Path(__file__).resolve().parent # pasta que o arquivo está
+PAI = ROOT.parent #pasta acima de app
+TXT_DIR = PAI / "txt"
 HIST_MOV_PATH = TXT_DIR / "movimentador.txt"
 HIST_PCP_PATH = TXT_DIR / "pcp.txt"
 INPUT_PATH = TXT_DIR / "movimentador_injecao.txt"
