@@ -78,10 +78,8 @@ def limpar_relatorio_csv() -> None:
 
 
 def main() -> int:
-    ltegeral_path = r"temp/LTgeral.xlsx"
     relatorio_path = r"temp/relatorio_semanal_temp.xlsx"
 
-    export_sheet_to_csv(ltegeral_path, "TabelaGeral", os.path.join("csv", "TabelaGeral.csv"))
     export_sheet_to_csv(relatorio_path, "Pendências - Geral", os.path.join("csv", "Pendencias - Geral.csv"))
 
     limpar_relatorio_csv()

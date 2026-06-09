@@ -9,7 +9,7 @@ from pathlib import Path
 
 
 """
-Essa automação tem o intuito de pegar uma mensagem recebida de um movimentador de estoque
+Essa automação pega uma mensagem recebida de um movimentador de estoque
 então ao passar ao pcp, é avaliado e então inserido em movimentador_injeção.txt para
 padronização e separação no setor de almoxarifado, o intuito da aplicação é excluir a necessidade
 de digitação manual e automatizar tarefas simples que demorariam horas para serem escritas com todos
